@@ -1,10 +1,16 @@
 from inspect import BoundArguments
 from math import log2
+from unicodedata import category
 import requests
 from bs4 import BeautifulSoup
 import re
+import os
 
 class Bout:
+    date = None
+    weapon = None
+    category = None
+    gender = None
     roundId = None    
     aSeed = None
     aName = None
@@ -14,7 +20,7 @@ class Bout:
     bScore = None
 
     def __str__(self):
-        return 'Round of ' + str(self.roundId) + ' | ' + str(self.aSeed or '') + ' ' + str(self.aName or '') + ' vs ' + str(self.bSeed or '') + ' ' +str(self.bName  or '') + '(' + str(self.aScore) + '-' + str(self.bScore) + ')'
+        return self.date + ' ' + self.gender + ' ' + self.category + ' ' + self.weapon + ' | Round of ' + str(self.roundId) + ' | ' + str(self.aSeed or '') + ' ' + str(self.aName or '') + ' vs ' + str(self.bSeed or '') + ' ' +str(self.bName  or '') + '(' + str(self.aScore) + '-' + str(self.bScore) + ')'
 
 class Fencer:    
     def __init__(self, seed, name):
@@ -25,101 +31,148 @@ class Fencer:
         return self.seed + ' | ' + self.name
 
 
-f = open(".\\20210228OMF.htm")
-html_text = f.read()
-soup = BeautifulSoup(html_text, 'html.parser')
+def getCategoryName(categoryAndGender):    
+    if categoryAndGender == "oa": return 'Open A'
+    if categoryAndGender == "ob": return 'Open B'
+    if categoryAndGender == "ca": return 'Cadet A'
+    if categoryAndGender == "cb": return 'Cadet B'
+    if categoryAndGender == "o": return 'Open'
+    if categoryAndGender == "i": return 'Intermediate'
+    if categoryAndGender == "n": return 'Novice'
+    if categoryAndGender == "ot": return 'Open Teams'
+    if categoryAndGender == "u9": return 'U9'
+    if categoryAndGender == "u11": return 'U11'
+    if categoryAndGender == "u13": return 'U13'
+    if categoryAndGender == "u13t": return 'U13 Teams'
+    if categoryAndGender == "u14t": return 'U14 Teams'
+    if categoryAndGender == "t": return 'Teams'
+    if categoryAndGender == "u15": return 'U15'
+    if categoryAndGender == "u1720": return 'U17/U20'
+    if categoryAndGender == "v": return 'Veterans'
+    if categoryAndGender == "yi": return 'Youth Intermediate'
+    if categoryAndGender == "vt": return 'Veteran Teams'
+    return None
 
-divs = soup.findAll('div')
+def getWeaponName(weapon):
+    if weapon == 'e' : return 'Epee'
+    if weapon == 's' : return 'Sabre'
+    if weapon == 'f' : return 'Foil'
 
-for divIndex in range(len(divs) - 1, 0, -1):
+def getGenderName(gender):
+    if gender == 'm' : return 'Mens'
+    if gender == 'f' : return 'Womens'
+    return 'Mixed'
+
+def readFile(filePath):
+    f = open(filePath)
+    html_text = f.read()
+    soup = BeautifulSoup(html_text, 'html.parser')
+
+    fileName = os.path.basename(filePath)
+    fileName = os.path.splitext(fileName)[0]
+    print(fileName)
+    date = fileName[0:8]
+    weapon = getWeaponName(fileName[-1].lower())
+    categoryAndGender = fileName[8:-1]
+    print(categoryAndGender)
+    category = getCategoryName(categoryAndGender.lower())
+    gender = None
+    if category == None:
+        gender = getGenderName(categoryAndGender[-1].lower())
+        categoryAndGender = categoryAndGender[0:-1]
+        category = getCategoryName(categoryAndGender.lower())
+
+    divs = soup.findAll('div')
+
+    for divIndex in range(len(divs) - 1, 0, -1):
+        div = divs[divIndex]
+        if '- DE - Scores' in div.text:
+            divIndex = divIndex + 1
+            break
+
     div = divs[divIndex]
-    if '- DE - Scores' in div.text:
-        divIndex = divIndex + 1
-        break
+    table = div.table
 
-div = divs[divIndex]
-table = div.table
+    colCount = len(table.findAll('col'))
 
-colCount = len(table.findAll('col'))
+    maxFencers = pow(2, colCount - 1)
 
-maxFencers = pow(2, colCount - 1)
+    bouts = []
+    for roundId in range(1, colCount):
+        maxSeed = pow(2, roundId)
+        for highSeed in range(1, int(maxSeed / 2) + 1):
+            bout = Bout()
+            bout.roundId = maxSeed
+            bout.aSeed = highSeed
+            bout.bSeed = maxSeed - highSeed + 1
+            bout.date = date
+            bout.category = category
+            bout.gender = gender
+            bout.weapon = weapon
+            bouts.append(bout)
+        
+    # Find fencers
+    for bout in bouts:
+        colIndex = colCount - int(log2(bout.roundId)) - 1
+        rows = table.findAll('tr')
+        for row in rows:
+            cell = row.findAll('td')[colIndex]
+            cellClass = cell.get('class')
+            if cellClass is not None and 'tableauNameCell' in cellClass:
+                resultSeed = int(cell.find('span', {'class': 'tableauSeed'}).text.replace('(', '').replace(')', ''))
+                name = str(cell.find('span', {'class': 'tableauCompName'}).text)
+                if resultSeed == bout.aSeed:
+                    bout.aName = name
+                if resultSeed == bout.bSeed:
+                    bout.bName = name
 
-bouts = []
-for roundId in range(1, colCount):
-    maxSeed = pow(2, roundId)
-    for highSeed in range(1, int(maxSeed / 2) + 1):
-        bout = Bout()
-        bout.roundId = maxSeed
-        bout.aSeed = highSeed
-        bout.bSeed = maxSeed - highSeed + 1
-        bouts.append(bout)
-    
-# Find fencers
-for bout in bouts:
-    #print(bout.roundId)
-    colIndex = colCount - int(log2(bout.roundId)) - 1
-    #print(colIndex)
-    rows = table.findAll('tr')
-    for row in rows:
-        cell = row.findAll('td')[colIndex]
-        cellClass = cell.get('class')
-        if cellClass is not None and 'tableauNameCell' in cellClass:
-            resultSeed = int(cell.find('span', {'class': 'tableauSeed'}).text.replace('(', '').replace(')', ''))
-            name = str(cell.find('span', {'class': 'tableauCompName'}).text)
-            if resultSeed == bout.aSeed:
-                bout.aName = name
-            if resultSeed == bout.bSeed:
-                bout.bName = name
+    bouts = [bout for bout in bouts if bout.bName != '-BYE-']
 
-bouts = [bout for bout in bouts if bout.bName != '-BYE-']
+    scoresRegex = re.compile('[0-9]+ - [0-9]+')               
+    # Find scores
+    for bout in bouts:
+        colIndex = colCount - int(log2(bout.roundId))
+        rows = table.findAll('tr')
+        for rowIndex in range(len(rows)):
+            row = rows[rowIndex]
+            cell = row.findAll('td')[colIndex]
+            cellClass = cell.get('class')
+            if cellClass is not None and 'tableauNameCell' in cellClass:
+                winnerName = str(cell.find('span', {'class': 'tableauCompName'}).text)
 
-scoresRegex = re.compile('[0-9]+ - [0-9]+')               
-# Find scores
-for bout in bouts:
-    #print(bout.roundId)
-    colIndex = colCount - int(log2(bout.roundId))
-    #print(colIndex)
-    rows = table.findAll('tr')
-    for rowIndex in range(len(rows)):
-        row = rows[rowIndex]
-        cell = row.findAll('td')[colIndex]
-        cellClass = cell.get('class')
-        if cellClass is not None and 'tableauNameCell' in cellClass:
-            winnerName = str(cell.find('span', {'class': 'tableauCompName'}).text)
-
-            if bout.aName == winnerName or bout.bName == winnerName:
-                #print(winnerName)
-                rowIndex = rowIndex + 1
-                row = rows[rowIndex]
-                cell = row.findAll('td')[colIndex]
-                scores = cell.text
-                
-                scores = cell.text.replace('Â', '')
-                scores = scores.strip()
-                if len(scores) == 0:
-                    continue
+                if bout.aName == winnerName or bout.bName == winnerName:
+                    rowIndex = rowIndex + 1
+                    row = rows[rowIndex]
+                    cell = row.findAll('td')[colIndex]
+                    scores = cell.text
                     
-                if not re.match(scoresRegex, scores):
-                    print(scores)
-                    continue
+                    scores = cell.text.replace('Â', '')
+                    scores = scores.strip()
+                    if len(scores) == 0:
+                        continue
+                        
+                    if not re.match(scoresRegex, scores):
+                        print(scores)
+                        continue
 
-                winnerScore = scores.split(' - ')[0]
-                loserScore = scores.split(' - ')[1]
+                    winnerScore = scores.split(' - ')[0]
+                    loserScore = scores.split(' - ')[1]
 
-                if bout.aName == winnerName:
-                    bout.aScore = winnerScore
-                    bout.bScore = loserScore
-                else:
-                    bout.bScore = winnerScore
-                    bout.aScore = loserScore
-    
-    if not re.match(scoresRegex, scores):
-        continue
-
-
-bouts = [bout for bout in bouts if bout.bScore != None]
+                    if bout.aName == winnerName:
+                        bout.aScore = winnerScore
+                        bout.bScore = loserScore
+                    else:
+                        bout.bScore = winnerScore
+                        bout.aScore = loserScore
+        
+        if not re.match(scoresRegex, scores):
+            continue
 
 
+    bouts = [bout for bout in bouts if bout.bScore != None]
+    return bouts
+
+bouts = readFile('.\\20210228OME.htm') + readFile('.\\20210228OMF.htm')
 for bout in bouts:
     print(bout)
 exit()
