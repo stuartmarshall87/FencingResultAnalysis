@@ -70,11 +70,9 @@ def readFile(filePath):
 
     fileName = os.path.basename(filePath)
     fileName = os.path.splitext(fileName)[0]
-    print(fileName)
     date = fileName[0:8]
     weapon = getWeaponName(fileName[-1].lower())
     categoryAndGender = fileName[8:-1]
-    print(categoryAndGender)
     category = getCategoryName(categoryAndGender.lower())
     gender = None
     if category == None:
@@ -172,7 +170,12 @@ def readFile(filePath):
     bouts = [bout for bout in bouts if bout.bScore != None]
     return bouts
 
-bouts = readFile('.\\20210228OME.htm') + readFile('.\\20210228OMF.htm')
+bouts = []
+files = os.listdir('.')
+for file in files:
+    if file.endswith(".htm"):
+        bouts = bouts + readFile(file)
+
 for bout in bouts:
     print(bout)
 exit()
