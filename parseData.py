@@ -7,6 +7,7 @@ import re
 import os
 
 class Bout:
+    fileName = None
     date = None
     weapon = None
     category = None
@@ -20,7 +21,7 @@ class Bout:
     bScore = None
 
     def __str__(self):
-        return self.date + ' ' + self.gender + ' ' + self.category + ' ' + self.weapon + ' | Round of ' + str(self.roundId) + ' | ' + str(self.aSeed or '') + ' ' + str(self.aName or '') + ' vs ' + str(self.bSeed or '') + ' ' +str(self.bName  or '') + '(' + str(self.aScore) + '-' + str(self.bScore) + ')'
+        return str(self.fileName or '') + ' ' + str(self.date or '') + ' ' + str(self.gender or '') + ' ' + str(self.category or '') + ' ' + str(self.weapon or '') + ' | Round of ' + str(self.roundId) + ' | ' + str(self.aSeed or '') + ' ' + str(self.aName or '') + ' vs ' + str(self.bSeed or '') + ' ' +str(self.bName  or '') + '(' + str(self.aScore) + '-' + str(self.bScore) + ')'
 
 class Fencer:    
     def __init__(self, seed, name):
@@ -68,6 +69,9 @@ def readFile(filePath):
     html_text = f.read()
     soup = BeautifulSoup(html_text, 'html.parser')
 
+    if soup.html.get('xmlns:ft') != 'http://www.fencingtime.com':
+        return []
+
     fileName = os.path.basename(filePath)
     fileName = os.path.splitext(fileName)[0]
     date = fileName[0:8]
@@ -100,6 +104,7 @@ def readFile(filePath):
         maxSeed = pow(2, roundId)
         for highSeed in range(1, int(maxSeed / 2) + 1):
             bout = Bout()
+            bout.fileName = fileName
             bout.roundId = maxSeed
             bout.aSeed = highSeed
             bout.bSeed = maxSeed - highSeed + 1
@@ -146,6 +151,8 @@ def readFile(filePath):
                     
                     scores = cell.text.replace('Â', '')
                     scores = scores.strip()
+                    if 'Ref:' in scores:
+                        scores = scores[0: scores.index('Ref:')]
                     if len(scores) == 0:
                         continue
                         
