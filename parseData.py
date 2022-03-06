@@ -6,6 +6,8 @@ from bs4 import BeautifulSoup
 import re
 import os
 
+import json
+
 class Bout:
     fileName = None
     date = None
@@ -22,6 +24,9 @@ class Bout:
 
     def __str__(self):
         return str(self.fileName or '') + ' ' + str(self.date or '') + ' ' + str(self.gender or '') + ' ' + str(self.category or '') + ' ' + str(self.weapon or '') + ' | Round of ' + str(self.roundId) + ' | ' + str(self.aSeed or '') + ' ' + str(self.aName or '') + ' vs ' + str(self.bSeed or '') + ' ' +str(self.bName  or '') + '(' + str(self.aScore) + '-' + str(self.bScore) + ')'
+
+    def to_json(self):
+        return json.dumps(self, default=lambda obj: obj.__dict__)
 
 class Fencer:    
     def __init__(self, seed, name):
@@ -187,7 +192,8 @@ def readFencingTime(filePath):
 bouts = []
 directories = [
     'D:\\Business\\FSAResults\\FencingSAResults\\2021',
-    'D:\\Business\\FSAResults\\FencingSAResults\\2020']
+    'D:\\Business\\FSAResults\\FencingSAResults\\2020'
+    ]
 
 for directoryPath in directories:
     files = os.listdir(directoryPath)
@@ -195,5 +201,6 @@ for directoryPath in directories:
         if file.endswith(".htm"):
            bouts = bouts + readFile(directoryPath + '\\' + file)
 
-    for bout in bouts:
-        print(bout)
+json_string = json.dumps([ob.__dict__ for ob in bouts])
+with open("D:\\Business\\FSAAnalysis\\file.json", "w") as file:
+    file.write(json_string)
