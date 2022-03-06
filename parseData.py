@@ -185,11 +185,15 @@ def readFencingTime(filePath):
     return bouts
 
 bouts = []
-files = os.listdir('.')
-for file in files:
-    if file.endswith(".htm"):
-        bouts = bouts + readFile(file)
+directories = [
+    'D:\\Business\\FSAResults\\FencingSAResults\\2021',
+    'D:\\Business\\FSAResults\\FencingSAResults\\2020']
 
-for bout in bouts:
-    print(bout)
-exit()
+for directoryPath in directories:
+    files = os.listdir(directoryPath)
+    for file in files:
+        if file.endswith(".htm"):
+           bouts = bouts + readFile(directoryPath + '\\' + file)
+
+    for bout in bouts:
+        print(bout)
