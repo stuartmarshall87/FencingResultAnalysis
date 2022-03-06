@@ -65,12 +65,19 @@ def getGenderName(gender):
     return 'Mixed'
 
 def readFile(filePath):
-    f = open(filePath)
-    html_text = f.read()
-    soup = BeautifulSoup(html_text, 'html.parser')
+    file = open(filePath)
+    htmlText = file.read()
+    soup = BeautifulSoup(htmlText, 'html.parser')
 
-    if soup.html.get('xmlns:ft') != 'http://www.fencingtime.com':
-        return []
+    if soup.html.get('xmlns:ft') == 'http://www.fencingtime.com':
+        return readFencingTime(filePath)
+    return []
+
+        
+def readFencingTime(filePath):
+    file = open(filePath)
+    htmlText = file.read()
+    soup = BeautifulSoup(htmlText, 'html.parser')
 
     fileName = os.path.basename(filePath)
     fileName = os.path.splitext(fileName)[0]
