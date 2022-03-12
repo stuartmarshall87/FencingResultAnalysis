@@ -190,6 +190,11 @@ def readFencingTime(filePath):
     return bouts
 
 bouts = []
+# 2020+ Fencing Time
+# 2018 Bellepoule
+# 201-2018 Engarde 1 File
+# 2014-2017 Engarde multi files
+# 2005-2013 LH
 directories = [
     'D:\\Business\\FSAResults\\FencingSAResults\\2021',
     'D:\\Business\\FSAResults\\FencingSAResults\\2020'
@@ -202,5 +207,5 @@ for directoryPath in directories:
            bouts = bouts + readFile(directoryPath + '\\' + file)
 
 json_string = json.dumps([ob.__dict__ for ob in bouts])
-with open("D:\\Business\\FSAAnalysis\\file.json", "w") as file:
+with open("D:\\Business\\FSAAnalysis\\bouts.json", "w") as file:
     file.write(json_string)
