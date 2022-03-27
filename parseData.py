@@ -1,7 +1,4 @@
-from inspect import BoundArguments
 from math import log2
-from unicodedata import category
-import requests
 from bs4 import BeautifulSoup
 import re
 import os
@@ -35,6 +32,12 @@ class Fencer:
     
     def __str__(self):
         return self.seed + ' | ' + self.name
+
+class CompInfo:
+    date = None
+    weapon = None    
+    category = None
+    gender = None
 
 
 def getCategoryName(categoryAndGender):    
@@ -70,24 +73,27 @@ def getGenderName(gender):
     return 'Mixed'
 
 def readFile(filePath):
+    fileName = os.path.basename(filePath)
+    fileName = os.path.splitext(fileName)[0]
+    comp = getCompInfo(fileName)
+    print(filePath, comp.category)
+    if 'Team' in comp.category:
+        return []
+
     file = open(filePath)
     htmlText = file.read()
     soup = BeautifulSoup(htmlText, 'html.parser')
 
     if soup.html.get('xmlns:ft') == 'http://www.fencingtime.com':
         return readFencingTime(filePath)
+    if soup.find('a', {'href': 'http://betton.escrime.free.fr/index.php/bellepoule'}):
+        return readBellepoule(filePath)   
     return []
 
-        
-def readFencingTime(filePath):
-    file = open(filePath)
-    htmlText = file.read()
-    soup = BeautifulSoup(htmlText, 'html.parser')
-
-    fileName = os.path.basename(filePath)
-    fileName = os.path.splitext(fileName)[0]
-    date = fileName[0:8]
-    weapon = getWeaponName(fileName[-1].lower())
+def getCompInfo(fileName):
+    comp = CompInfo()
+    comp.date = fileName[0:8]
+    comp.weapon = getWeaponName(fileName[-1].lower())
     categoryAndGender = fileName[8:-1]
     category = getCategoryName(categoryAndGender.lower())
     gender = None
@@ -95,7 +101,19 @@ def readFencingTime(filePath):
         gender = getGenderName(categoryAndGender[-1].lower())
         categoryAndGender = categoryAndGender[0:-1]
         category = getCategoryName(categoryAndGender.lower())
+    comp.gender = gender
+    comp.category = category
 
+    return comp
+        
+def readFencingTime(filePath):
+    fileName = os.path.basename(filePath)
+    fileName = os.path.splitext(fileName)[0]
+    comp = getCompInfo(fileName)
+
+    file = open(filePath)
+    htmlText = file.read()
+    soup = BeautifulSoup(htmlText, 'html.parser')
     divs = soup.findAll('div')
 
     for divIndex in range(len(divs) - 1, 0, -1):
@@ -109,8 +127,6 @@ def readFencingTime(filePath):
 
     colCount = len(table.findAll('col'))
 
-    maxFencers = pow(2, colCount - 1)
-
     bouts = []
     for roundId in range(1, colCount):
         maxSeed = pow(2, roundId)
@@ -120,10 +136,10 @@ def readFencingTime(filePath):
             bout.roundId = maxSeed
             bout.aSeed = highSeed
             bout.bSeed = maxSeed - highSeed + 1
-            bout.date = date
-            bout.category = category
-            bout.gender = gender
-            bout.weapon = weapon
+            bout.date = comp.date
+            bout.category = comp.category
+            bout.gender = comp.gender
+            bout.weapon = comp.weapon
             bouts.append(bout)
         
     # Find fencers
@@ -189,6 +205,120 @@ def readFencingTime(filePath):
     bouts = [bout for bout in bouts if bout.bScore != None]
     return bouts
 
+def readBellepoule(filePath):
+    fileName = os.path.basename(filePath)
+    fileName = os.path.splitext(fileName)[0]
+
+    file = open(filePath)
+    htmlText = file.read()
+    comp = getCompInfo(fileName)
+
+    soup = BeautifulSoup(htmlText, 'html.parser')
+
+    table = soup.find('table', {'class': 'TableTable'})
+    headerRow = table.find('tr', {'class': 'TableName'})
+    colCount = len(headerRow.findAll('th'))    
+    rows = table.find_all('tr')
+    bouts = []
+    bouts = findBellepouleBoutHistory(table, 1, colCount - 1, 2, len(rows))
+
+    for bout in bouts:
+        bout.fileName = fileName
+        bout.date = comp.date
+        bout.weapon = comp.weapon
+        bout.category = comp.category
+        bout.gender = comp.gender
+    return bouts
+
+def findBellepouleBoutHistory(table, topSeed, colIndex, startRowIndex, endRowIndex):
+    if colIndex <= 0:
+        return []
+
+    headerRow = table.find('tr', {'class': 'TableName'})
+    colCount = len(headerRow.findAll('th'))
+    maxSeed = pow(2, colCount - colIndex)
+    otherSeed = maxSeed + 1 - topSeed
+
+    bout = Bout()
+    bout.roundId = maxSeed
+    if topSeed%2 == 1:
+        bout.aSeed = topSeed
+        bout.bSeed = otherSeed
+    else:
+        bout.aSeed = otherSeed
+        bout.bSeed = topSeed 
+
+    bouts = []
+    # Find bout result
+    rows = table.find_all('tr')
+    for row in rows[startRowIndex:endRowIndex]:
+        cells = row.find_all('td')
+        cell = cells[colIndex]
+        cellClass = cell.get('class')[0]
+        if cellClass == 'TableCellFirstCol' or cellClass == 'TableCell' or cellClass == 'TableCellLastCol':
+            score = cell.find('span', {'class': 'TableScore'})
+            if score is not None:
+                # Get bout score
+                scores = str(score.text).split('-')
+                firstName = cell.find('span', {'class': 'first_name'}).text
+                name = cell.find('span', {'class': 'name'}).text
+                fullName = str(firstName) + str(name)
+                if scores[0][0] == 'V':
+                    if scores[0] == 'V':
+                        bout.aScore = 15
+                    else:
+                        bout.aScore = int(scores[0][1:])
+                    bout.aName = fullName
+                    bout.bScore = int(scores[1])
+                elif scores[1][0] == 'V':                    
+                    if scores[1] == 'V':
+                        bout.bScore = 15
+                    else:
+                        bout.bScore = int(scores[1][1:])
+                    bout.bName = fullName
+                    bout.aScore = int(scores[0])
+                #print(bout.aScore, bout.bScore)
+            else:
+                return bouts
+
+    # Get opponent    
+    for row in rows[startRowIndex:endRowIndex]:
+        cells = row.find_all('td')
+        cell = cells[colIndex - 1]
+        cellClass = cell.get('class')[0]
+        if cellClass == 'TableCellFirstCol' or cellClass == 'TableCell' or cellClass == 'TableCellLastCol':
+            firstName = cell.find('span', {'class': 'first_name'}).text
+            name = cell.find('span', {'class': 'name'}).text
+            otherFullName = str(firstName) + str(name)
+            if otherFullName != fullName:
+                if bout.aName is None:
+                    bout.aName = otherFullName
+                else:
+                    bout.bName = otherFullName
+
+    if bout.aScore == 0 and bout.bScore == 0:
+        return bouts
+
+    bouts.append(bout)
+    midRowIndex = startRowIndex + round((endRowIndex - startRowIndex) / 2)
+
+    if topSeed%2 == 1:
+        newBouts = findBellepouleBoutHistory(table, topSeed, colIndex - 1, startRowIndex, midRowIndex)
+        for newBout in newBouts:
+            bouts.append(newBout)
+        newBouts = findBellepouleBoutHistory(table, otherSeed, colIndex - 1, midRowIndex, endRowIndex)
+        for newBout in newBouts:
+            bouts.append(newBout)
+    else:
+        newBouts = findBellepouleBoutHistory(table, otherSeed, colIndex - 1, startRowIndex, midRowIndex)
+        for newBout in newBouts:
+            bouts.append(newBout)
+        newBouts = findBellepouleBoutHistory(table, topSeed, colIndex - 1, midRowIndex, endRowIndex)
+        for newBout in newBouts:
+            bouts.append(newBout)
+
+    return bouts
+
 bouts = []
 # 2020+ Fencing Time
 # 2018 Bellepoule
@@ -196,15 +326,18 @@ bouts = []
 # 2014-2017 Engarde multi files
 # 2005-2013 LH
 directories = [
+    'D:\\Business\\FSAResults\\FencingSAResults\\2018',
+    'D:\\Business\\FSAResults\\FencingSAResults\\2019',
     'D:\\Business\\FSAResults\\FencingSAResults\\2021',
     'D:\\Business\\FSAResults\\FencingSAResults\\2020'
     ]
 
+
 for directoryPath in directories:
     files = os.listdir(directoryPath)
     for file in files:
-        if file.endswith(".htm"):
-           bouts = bouts + readFile(directoryPath + '\\' + file)
+        if file.endswith(".htm") or file.endswith(".html"):
+            bouts = bouts + readFile(directoryPath + '\\' + file)
 
 json_string = json.dumps([ob.__dict__ for ob in bouts])
 with open("D:\\Business\\FSAAnalysis\\bouts.json", "w") as file:
