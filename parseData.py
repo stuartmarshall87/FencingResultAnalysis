@@ -76,8 +76,10 @@ def readFile(filePath):
     fileName = os.path.basename(filePath)
     fileName = os.path.splitext(fileName)[0]
     comp = getCompInfo(fileName)
-    print(filePath, comp.category)
-    if 'Team' in comp.category:
+    if comp.category is None:
+        print('Unknown comp category:' + fileName)
+        return []
+    elif 'Team' in comp.category:
         return []
 
     file = open(filePath)
@@ -93,16 +95,24 @@ def readFile(filePath):
 def getCompInfo(fileName):
     comp = CompInfo()
     comp.date = fileName[0:8]
+    
+    if not str(comp.date).isnumeric():
+        return comp
     comp.weapon = getWeaponName(fileName[-1].lower())
     categoryAndGender = fileName[8:-1]
     category = getCategoryName(categoryAndGender.lower())
     gender = None
     if category == None:
-        gender = getGenderName(categoryAndGender[-1].lower())
-        categoryAndGender = categoryAndGender[0:-1]
-        category = getCategoryName(categoryAndGender.lower())
-    comp.gender = gender
-    comp.category = category
+        genderCode = categoryAndGender[-1].lower()
+        if genderCode != 't':
+            gender = getGenderName(genderCode)        
+            categoryAndGender = categoryAndGender[0:-1]
+            category = getCategoryName(categoryAndGender.lower())
+            comp.gender = gender
+            comp.category = category
+    else:
+        comp.gender = gender
+        comp.category = category
 
     return comp
         
@@ -332,12 +342,16 @@ directories = [
     'D:\\Business\\FSAResults\\FencingSAResults\\2020'
     ]
 
-
 for directoryPath in directories:
     files = os.listdir(directoryPath)
     for file in files:
         if file.endswith(".htm") or file.endswith(".html"):
-            bouts = bouts + readFile(directoryPath + '\\' + file)
+            try:
+                bouts = bouts + readFile(directoryPath + '\\' + file)
+            except BaseException as err:
+                print('Error ' + file)
+                print(err)
+                raise
 
 json_string = json.dumps([ob.__dict__ for ob in bouts])
 with open("D:\\Business\\FSAAnalysis\\bouts.json", "w") as file:
