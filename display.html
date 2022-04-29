@@ -1,0 +1,139 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/2.3.2/luxon.min.js"></script>
+  </head>
+
+  <body>
+    <select id="fencers"></select>
+    <select id="categories"></select>
+    <select id="weapon">
+      <option value="e">Epee</option>
+      <option value="f">Foil</option>
+      <option value="s">Sabre</option>
+    </select>
+
+    <ul id="bouts"></ul>
+  </body>
+
+  <script type="text/javascript">
+    var fencers = [];
+
+    function uniq(a) {
+      var prims = { boolean: {}, number: {}, string: {} },
+        objs = [];
+
+      return a.filter(function (item) {
+        var type = typeof item;
+        if (type in prims)
+          return prims[type].hasOwnProperty(item)
+            ? false
+            : (prims[type][item] = true);
+        else return objs.indexOf(item) >= 0 ? false : objs.push(item);
+      });
+    }
+
+    $.get("bouts.json").done(function (bouts) {
+      for (var index in bouts) {
+        var bout = bouts[index];
+        fencers.push(bout.aName);
+        fencers.push(bout.bName);
+      }
+
+      fencers = uniq(fencers);
+      var s = $("#fencers");
+      fencers.forEach((fencer) => {
+        $("<option />", { value: fencer, text: fencer }).appendTo(s);
+      });
+
+      s.change(function () {
+        var fencerName = $(this).val();
+        // fencerBouts = [];
+        var boutList = $("#bouts");
+        for (var index in bouts) {
+          var bout = bouts[index];
+          if (bout.aName == fencerName || bout.bName == fencerName) {
+            var winner = {};
+            var loser = {};
+            if (bout.aScore > bout.bScore) {
+              winner = {
+                name: bout.aName,
+                score: bout.aScore,
+              };
+              lower = {
+                name: bout.bName,
+                score: bout.bScore,
+              };
+            } else
+              winner = {
+                name: bout.aName,
+                score: bout.aScore,
+              };
+            lower = {
+              name: bout.bName,
+              score: bout.bScore,
+            };
+
+            var date = luxon.DateTime.fromFormat(bout.date, "yyyyMMdd");
+            var str = "";
+            str += date.toFormat("dd/MM/yyyy") + " " + bout.category;
+            if (bout.gender != null) {
+              str += " " + bout.gender;
+            }
+            str += " " + bout.weapon;
+
+            var roundName = bout.roundId;
+            switch (bout.roundId) {
+              case 2:
+                roundName = "Final";
+                break;
+              case 4:
+                roundName = "Semi";
+                break;
+              default:
+                roundName = "R" + roundName;
+            }
+            str += " " + roundName;
+
+            /*
+          bout.fileName = None;
+          bout.date = None;
+          bout.weapon = None;
+          bout.category = None;
+          bout.gender = None;
+          bout.aSeed = None;
+          bout.bSeed = None;
+          */
+
+            str +=
+              " " +
+              bout.aName +
+              " vs " +
+              bout.bName +
+              "(" +
+              bout.aScore +
+              "-" +
+              bout.bScore +
+              ")";
+            var li = $("<li>");
+            li.append($("<span>").text(str));
+
+            li.append(
+              $("<a>", {
+                text: "Link",
+                href:
+                  "https://fencingsa.github.io/FencingSAResults/" +
+                  date.year +
+                  "/" +
+                  bout.fileName +
+                  "?timestamp=1651233139050",
+              })
+            );
+
+            boutList.append(li);
+          }
+        }
+      });
+    });
+  </script>
+</html>

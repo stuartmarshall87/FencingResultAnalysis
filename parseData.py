@@ -332,7 +332,7 @@ def findBellepouleBoutHistory(table, topSeed, colIndex, startRowIndex, endRowInd
 bouts = []
 # 2020+ Fencing Time
 # 2018 Bellepoule
-# 201-2018 Engarde 1 File
+# 2017-2018 Engarde 1 File
 # 2014-2017 Engarde multi files
 # 2005-2013 LH
 directories = [
