@@ -40,7 +40,17 @@
         fencers.push(bout.bName);
       }
 
-      fencers = uniq(fencers);
+      fencers = uniq(fencers).sort((a, b) => {
+        if (a == b) {
+          return 0;
+        }
+        if (a > b) {
+          return 1;
+        }
+        if (a < b) {
+          return -1;
+        }
+      });
       var s = $("#fencers");
       fencers.forEach((fencer) => {
         $("<option />", { value: fencer, text: fencer }).appendTo(s);
@@ -50,6 +60,7 @@
         var fencerName = $(this).val();
         // fencerBouts = [];
         var boutList = $("#bouts");
+        boutList.empty();
         for (var index in bouts) {
           var bout = bouts[index];
           if (bout.aName == fencerName || bout.bName == fencerName) {
