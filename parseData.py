@@ -1,8 +1,10 @@
+from fileinput import fileno
+from importlib.metadata import FileHash
 from math import log2
 from bs4 import BeautifulSoup
 import re
 import os
-
+import hashlib
 import json
 
 class Bout:
@@ -70,6 +72,9 @@ def getWeaponName(weapon):
 def getGenderName(gender):
     if gender == 'm' : return 'Mens'
     if gender == 'f' : return 'Womens'
+    if gender == 'w' : return 'Womens'
+    if gender == 'b' : return 'Boys'
+    if gender == 'g' : return 'Girls'
     return 'Mixed'
 
 def readFile(filePath):
@@ -336,22 +341,33 @@ bouts = []
 # 2014-2017 Engarde multi files
 # 2005-2013 LH
 directories = [
-    'D:\\Business\\FSAResults\\FencingSAResults\\2018',
-    'D:\\Business\\FSAResults\\FencingSAResults\\2019',
-    'D:\\Business\\FSAResults\\FencingSAResults\\2021',
+    #'D:\\Business\\FSAResults\\FencingSAResults\\2018',
+    #'D:\\Business\\FSAResults\\FencingSAResults\\2019',
+    #'D:\\Business\\FSAResults\\FencingSAResults\\2021',
     'D:\\Business\\FSAResults\\FencingSAResults\\2020'
     ]
 
 for directoryPath in directories:
     files = os.listdir(directoryPath)
+    hashes = []
+
     for file in files:
-        if file.endswith(".htm") or file.endswith(".html"):
-            try:
-                bouts = bouts + readFile(directoryPath + '\\' + file)
-            except BaseException as err:
-                print('Error ' + file)
-                print(err)
-                raise
+        if not file.endswith(".htm") and not file.endswith('.html'):
+            continue
+
+        try:
+            path = directoryPath + '\\' + file
+            hash = hashlib.md5(open(path,'rb').read()).hexdigest()
+            if hash in hashes:
+                print('skip hash ' + hash + ' file ' + file)
+                continue
+            
+            hashes.append(hash)
+            bouts = bouts + readFile(path)
+        except BaseException as err:
+            print('Error ' + file)
+            print(err)
+            raise
 
 json_string = json.dumps([ob.__dict__ for ob in bouts])
 with open("D:\\Business\\FSAAnalysis\\bouts.json", "w") as file:
