@@ -341,9 +341,9 @@ bouts = []
 # 2014-2017 Engarde multi files
 # 2005-2013 LH
 directories = [
-    #'D:\\Business\\FSAResults\\FencingSAResults\\2018',
-    #'D:\\Business\\FSAResults\\FencingSAResults\\2019',
-    #'D:\\Business\\FSAResults\\FencingSAResults\\2021',
+    'D:\\Business\\FSAResults\\FencingSAResults\\2018',
+    'D:\\Business\\FSAResults\\FencingSAResults\\2019',
+    'D:\\Business\\FSAResults\\FencingSAResults\\2021',
     'D:\\Business\\FSAResults\\FencingSAResults\\2020'
     ]
 
