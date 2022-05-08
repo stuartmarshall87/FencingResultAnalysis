@@ -33,7 +33,98 @@
       });
     }
 
-    $.get("bouts.json").done(function (bouts) {
+    function groupBy(xs, key) {
+      return xs.reduce(function (rv, x) {
+        (rv[x[key]] = rv[x[key]] || []).push(x);
+        return rv;
+      }, {});
+    }
+
+    function onFencerSelected() {
+      var bouts = this.bouts;
+      var fencerName = $("#fencers").val();
+
+      fencerBouts = [];
+      for (var index in bouts) {
+        var bout = bouts[index];
+        if (bout.aName == fencerName || bout.bName == fencerName) {
+          fencerBouts.push(bout);
+        }
+      }
+
+      var boutList = $("#bouts");
+      boutList.empty();
+      var comps = groupBy(fencerBouts, "fileName");
+      for (var fileName in comps) {
+        var compBouts = comps[fileName];
+        var bout = compBouts[0];
+        var date = luxon.DateTime.fromFormat(bout.date, "yyyyMMdd");
+        var str = "";
+        str += date.toFormat("dd/MM/yyyy") + " " + bout.category;
+        if (bout.gender != null) {
+          str += " " + bout.gender;
+        }
+        str += " " + bout.weapon;
+        str += " " + bout.fileName + " ";
+        var compHeading = $("<li>");
+        compHeading.append($("<span>").text(str));
+        compHeading.append(
+          $(" <a>", {
+            text: "Link",
+            href:
+              "https://fencingsa.github.io/FencingSAResults/" +
+              date.year +
+              "/" +
+              bout.fileName +
+              "?timestamp=1651233139050",
+          })
+        );
+        var ul = $("<ul>");
+
+        for (var index in compBouts) {
+          var bout = compBouts[index];
+          var winner = {};
+          var loser = {};
+
+          str = "";
+          var roundName = bout.roundId;
+          switch (bout.roundId) {
+            case 2:
+              roundName = "Final";
+              break;
+            case 4:
+              roundName = "Semi";
+              break;
+            default:
+              roundName = "R" + roundName;
+          }
+          str += " " + roundName;
+
+          str +=
+            " " +
+            bout.aName +
+            " vs " +
+            bout.bName +
+            "(" +
+            bout.aScore +
+            "-" +
+            bout.bScore +
+            ")";
+
+          var li = $("<li>");
+          li.append($("<span>").text(str));
+          ul.append(li);
+        }
+
+        compHeading.append(ul);
+        boutList.append(compHeading);
+      }
+    }
+
+    $.get("bouts.json").done(function (boutsList) {
+      var bouts = boutsList;
+      this.bouts = boutsList;
+
       for (var index in bouts) {
         var bout = bouts[index];
         fencers.push(bout.aName);
@@ -56,95 +147,7 @@
         $("<option />", { value: fencer, text: fencer }).appendTo(s);
       });
 
-      s.change(function () {
-        var fencerName = $(this).val();
-        // fencerBouts = [];
-        var boutList = $("#bouts");
-        boutList.empty();
-        for (var index in bouts) {
-          var bout = bouts[index];
-          if (bout.aName == fencerName || bout.bName == fencerName) {
-            var winner = {};
-            var loser = {};
-            if (bout.aScore > bout.bScore) {
-              winner = {
-                name: bout.aName,
-                score: bout.aScore,
-              };
-              lower = {
-                name: bout.bName,
-                score: bout.bScore,
-              };
-            } else
-              winner = {
-                name: bout.aName,
-                score: bout.aScore,
-              };
-            lower = {
-              name: bout.bName,
-              score: bout.bScore,
-            };
-
-            var date = luxon.DateTime.fromFormat(bout.date, "yyyyMMdd");
-            var str = "";
-            str += date.toFormat("dd/MM/yyyy") + " " + bout.category;
-            if (bout.gender != null) {
-              str += " " + bout.gender;
-            }
-            str += " " + bout.weapon;
-
-            var roundName = bout.roundId;
-            switch (bout.roundId) {
-              case 2:
-                roundName = "Final";
-                break;
-              case 4:
-                roundName = "Semi";
-                break;
-              default:
-                roundName = "R" + roundName;
-            }
-            str += " " + roundName;
-
-            /*
-          bout.fileName = None;
-          bout.date = None;
-          bout.weapon = None;
-          bout.category = None;
-          bout.gender = None;
-          bout.aSeed = None;
-          bout.bSeed = None;
-          */
-
-            str +=
-              " " +
-              bout.aName +
-              " vs " +
-              bout.bName +
-              "(" +
-              bout.aScore +
-              "-" +
-              bout.bScore +
-              ")";
-            var li = $("<li>");
-            li.append($("<span>").text(str));
-
-            li.append(
-              $("<a>", {
-                text: "Link",
-                href:
-                  "https://fencingsa.github.io/FencingSAResults/" +
-                  date.year +
-                  "/" +
-                  bout.fileName +
-                  "?timestamp=1651233139050",
-              })
-            );
-
-            boutList.append(li);
-          }
-        }
-      });
+      s.change(onFencerSelected.bind(this));
     });
   </script>
 </html>
