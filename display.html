@@ -100,19 +100,33 @@
           }
           str += " " + roundName;
 
+          var ownName = fencerName;
+          var ownScore = bout.bScore;
+          var opponentName = bout.aName;
+          var opponentScore = bout.aScore;
+          if (bout.aName == ownName) {
+            ownScore = bout.aScore;
+            opponentName = bout.bName;
+            opponentScore = bout.bScore;
+          }
+
           str +=
             " " +
-            bout.aName +
+            (parseInt(ownScore) > parseInt(opponentScore)
+              ? "<b>" + ownName + "</b>"
+              : ownName) +
             " vs " +
-            bout.bName +
-            "(" +
-            bout.aScore +
-            "-" +
-            bout.bScore +
+            (parseInt(ownScore) < parseInt(opponentScore)
+              ? "<b>" + opponentName + "</b>"
+              : opponentName) +
+            " (" +
+            ownScore.toString() +
+            " - " +
+            opponentScore.toString() +
             ")";
 
           var li = $("<li>");
-          li.append($("<span>").text(str));
+          li.append($("<div>").html(str));
           ul.append(li);
         }
 
@@ -121,7 +135,8 @@
       }
     }
 
-    $.get("bouts.json").done(function (boutsList) {
+    const boutsPath = "bouts.json?bust=" + luxon.DateTime.now().toSeconds();
+    $.get(boutsPath).done(function (boutsList) {
       var bouts = boutsList;
       this.bouts = boutsList;
 
