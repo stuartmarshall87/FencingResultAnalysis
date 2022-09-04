@@ -166,7 +166,7 @@ def readFencingTime(filePath):
             cellClass = cell.get('class')
             if cellClass is not None and 'tableauNameCell' in cellClass:
                 resultSeed = int(cell.find('span', {'class': 'tableauSeed'}).text.replace('(', '').replace(')', ''))
-                name = str(cell.find('span', {'class': 'tableauCompName'}).text)
+                name = str(cell.find('span', {'class': 'tableauCompName'}).text).strip()
                 if resultSeed == bout.aSeed:
                     bout.aName = name
                 if resultSeed == bout.bSeed:
@@ -184,7 +184,7 @@ def readFencingTime(filePath):
             cell = row.findAll('td')[colIndex]
             cellClass = cell.get('class')
             if cellClass is not None and 'tableauNameCell' in cellClass:
-                winnerName = str(cell.find('span', {'class': 'tableauCompName'}).text)
+                winnerName = str(cell.find('span', {'class': 'tableauCompName'}).text).strip()
 
                 if bout.aName == winnerName or bout.bName == winnerName:
                     rowIndex = rowIndex + 1
@@ -216,9 +216,24 @@ def readFencingTime(filePath):
         if not re.match(scoresRegex, scores):
             continue
 
-
+    for bout in bouts:
+        bout.aName = extractFencingTimeName(bout.aName)
+        bout.bName = extractFencingTimeName(bout.bName)
     bouts = [bout for bout in bouts if bout.bScore != None]
     return bouts
+
+def extractFencingTimeName(name):
+    firstName = ''
+    lastName = ''
+    for part in name.split(' '):
+        if part.isupper():
+            lastName = lastName + ' ' + part
+        else:
+            firstName = firstName + ' ' + part
+    firstName = firstName.strip().title()
+    lastName = lastName.strip().title()
+    
+    return firstName + ' ' + lastName
 
 def readBellepoule(filePath):
     fileName = os.path.basename(filePath)
@@ -278,6 +293,7 @@ def findBellepouleBoutHistory(table, topSeed, colIndex, startRowIndex, endRowInd
                 firstName = cell.find('span', {'class': 'first_name'}).text
                 name = cell.find('span', {'class': 'name'}).text
                 fullName = str(firstName) + str(name)
+                fullName = fullName.strip()
                 if scores[0][0] == 'V':
                     if scores[0] == 'V':
                         bout.aScore = 15
@@ -305,6 +321,7 @@ def findBellepouleBoutHistory(table, topSeed, colIndex, startRowIndex, endRowInd
             firstName = cell.find('span', {'class': 'first_name'}).text
             name = cell.find('span', {'class': 'name'}).text
             otherFullName = str(firstName) + str(name)
+            otherFullName = otherFullName.strip()
             if otherFullName != fullName:
                 if bout.aName is None:
                     bout.aName = otherFullName
@@ -341,10 +358,10 @@ bouts = []
 # 2014-2017 Engarde multi files
 # 2005-2013 LH
 directories = [
-    'D:\\Business\\FSAResults\\FencingSAResults\\2018',
-    'D:\\Business\\FSAResults\\FencingSAResults\\2019',
-    'D:\\Business\\FSAResults\\FencingSAResults\\2021',
-    'D:\\Business\\FSAResults\\FencingSAResults\\2020'
+    'C:\\Code\\FencingSAResults\\2018',
+    'C:\\Code\\FencingSAResults\\2019',
+    'C:\\Code\\FencingSAResults\\2021',
+    'C:\\Code\\FencingSAResults\\2020'
     ]
 
 for directoryPath in directories:
@@ -359,7 +376,6 @@ for directoryPath in directories:
             path = directoryPath + '\\' + file
             hash = hashlib.md5(open(path,'rb').read()).hexdigest()
             if hash in hashes:
-                print('skip hash ' + hash + ' file ' + file)
                 continue
             
             hashes.append(hash)
@@ -370,5 +386,5 @@ for directoryPath in directories:
             raise
 
 json_string = json.dumps([ob.__dict__ for ob in bouts])
-with open("D:\\Business\\FSAAnalysis\\bouts.json", "w") as file:
+with open("C:\\Code\\FSAAnalysis\\FencingResultAnalysis\\bouts.json", "w") as file:
     file.write(json_string)
