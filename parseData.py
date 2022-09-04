@@ -384,6 +384,14 @@ for directoryPath in directories:
             print('Error ' + file)
             print(err)
             raise
+with open("C:\\Code\\FSAAnalysis\\FencingResultAnalysis\\nameLinks.json") as json_file:
+    nameLinks = json.load(json_file)
+
+for bout in bouts:
+    if bout.aName in nameLinks:
+        bout.aName = nameLinks[bout.aName]
+    if bout.bName in nameLinks:
+        bout.bName = nameLinks[bout.bName]
 
 json_string = json.dumps([ob.__dict__ for ob in bouts])
 with open("C:\\Code\\FSAAnalysis\\FencingResultAnalysis\\bouts.json", "w") as file:
