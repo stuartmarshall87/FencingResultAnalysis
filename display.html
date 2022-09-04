@@ -2,6 +2,12 @@
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/2.3.2/luxon.min.js"></script>
+    <style type="text/css">
+      .comp-heading {
+        margin-top: 10px;
+      }
+    </style>
+
   </head>
 
   <body>
@@ -80,7 +86,7 @@
         }
         str += " " + bout.weapon;
         str += " " + bout.fileName + " ";
-        var compHeading = $("<li>");
+        var compHeading = $("<li class='comp-heading'>");
         compHeading.append($("<span>").text(str));
         compHeading.append(
           $(" <a>", {
@@ -139,7 +145,7 @@
             opponentScore.toString() +
             ")";
 
-          var li = $("<li>");
+          var li = $("<li class='bout'>");
           li.append($("<div>").html(str));
           ul.append(li);
         }
