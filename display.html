@@ -52,6 +52,20 @@
         }
       }
 
+      fencerBouts = fencerBouts.sort((a, b) => 
+      {
+        if (a.date == b.date) {
+          return 0;
+        }
+        else if (a.date < b.date) {
+          return 1;
+        }
+        else {
+          return -1;
+        }
+
+      })
+
       var boutList = $("#bouts");
       boutList.empty();
       var comps = groupBy(fencerBouts, "fileName");
