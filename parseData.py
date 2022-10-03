@@ -1,5 +1,6 @@
 from fileinput import fileno
 from importlib.metadata import FileHash
+from inspect import _void
 from math import log2
 from bs4 import BeautifulSoup
 import re
@@ -42,26 +43,26 @@ class CompInfo:
     gender = None
 
 
-def getCategoryName(categoryAndGender):    
-    if categoryAndGender == "oa": return 'Open A'
-    if categoryAndGender == "ob": return 'Open B'
-    if categoryAndGender == "ca": return 'Cadet A'
-    if categoryAndGender == "cb": return 'Cadet B'
-    if categoryAndGender == "o": return 'Open'
-    if categoryAndGender == "i": return 'Intermediate'
-    if categoryAndGender == "n": return 'Novice'
-    if categoryAndGender == "ot": return 'Open Teams'
-    if categoryAndGender == "u9": return 'U9'
-    if categoryAndGender == "u11": return 'U11'
-    if categoryAndGender == "u13": return 'U13'
-    if categoryAndGender == "u13t": return 'U13 Teams'
-    if categoryAndGender == "u14t": return 'U14 Teams'
-    if categoryAndGender == "t": return 'Teams'
-    if categoryAndGender == "u15": return 'U15'
-    if categoryAndGender == "u1720": return 'U17/U20'
-    if categoryAndGender == "v": return 'Veterans'
-    if categoryAndGender == "yi": return 'Youth Intermediate'
-    if categoryAndGender == "vt": return 'Veteran Teams'
+def getCategoryName(categoryCode):
+    if categoryCode == "oa": return 'Open A'
+    if categoryCode == "ob": return 'Open B'
+    if categoryCode == "ca": return 'Cadet A'
+    if categoryCode == "cb": return 'Cadet B'
+    if categoryCode == "o": return 'Open'
+    if categoryCode == "i": return 'Intermediate'
+    if categoryCode == "n": return 'Novice'
+    if categoryCode == "ot": return 'Open Teams'
+    if categoryCode == "u9": return 'U9'
+    if categoryCode == "u11": return 'U11'
+    if categoryCode == "u13": return 'U13'
+    if categoryCode == "u13t": return 'U13 Teams'
+    if categoryCode == "u14t": return 'U14 Teams'
+    if categoryCode == "t": return 'Teams'
+    if categoryCode == "u15": return 'U15'
+    if categoryCode == "u1720": return 'U17/U20'
+    if categoryCode == "v": return 'Veterans'
+    if categoryCode == "yi": return 'Youth Intermediate'
+    if categoryCode == "vt": return 'Veteran Teams'
     return None
 
 def getWeaponName(weapon):
@@ -81,8 +82,11 @@ def readFile(filePath):
     fileName = os.path.basename(filePath)
     fileName = os.path.splitext(fileName)[0]
     comp = getCompInfo(fileName)
+    if comp == None:
+        print('Invalid file: ' + fileName)
+        return []
     if comp.category is None:
-        print('Unknown comp category:' + fileName)
+        #print('Unknown comp category:' + fileName)
         return []
     elif 'Team' in comp.category:
         return []
@@ -94,15 +98,26 @@ def readFile(filePath):
     if soup.html.get('xmlns:ft') == 'http://www.fencingtime.com':
         return readFencingTime(filePath)
     if soup.find('a', {'href': 'http://betton.escrime.free.fr/index.php/bellepoule'}):
-        return readBellepoule(filePath)   
+        return readBellepoule(filePath)
+    if soup.find('meta', {'content': 'Engarde'}):
+        return readEngardeOneFile(filePath)
     return []
 
 def getCompInfo(fileName):
     comp = CompInfo()
     comp.date = fileName[0:8]
-    
+
     if not str(comp.date).isnumeric():
         return comp
+
+    weaponCode = fileName[-2:].lower()
+    if weaponCode == 'ef' or weaponCode == 'ff' or weaponCode == 'sf':
+        return comp
+
+    weaponCode = fileName[-1].lower()
+    if weaponCode == 'p' or weaponCode == 'r' or weaponCode == 't':
+        return comp
+
     comp.weapon = getWeaponName(fileName[-1].lower())
     categoryAndGender = fileName[8:-1]
     category = getCategoryName(categoryAndGender.lower())
@@ -111,8 +126,8 @@ def getCompInfo(fileName):
         genderCode = categoryAndGender[-1].lower()
         if genderCode != 't':
             gender = getGenderName(genderCode)        
-            categoryAndGender = categoryAndGender[0:-1]
-            category = getCategoryName(categoryAndGender.lower())
+            categoryCode = categoryAndGender[0:-1]
+            category = getCategoryName(categoryCode.lower())
             comp.gender = gender
             comp.category = category
     else:
@@ -351,18 +366,26 @@ def findBellepouleBoutHistory(table, topSeed, colIndex, startRowIndex, endRowInd
 
     return bouts
 
+def readEngardeOneFile(filePath):
+    print('Engard read: '+ filePath)
+    return []
+
 bouts = []
 # 2020+ Fencing Time
 # 2018 Bellepoule
 # 2017-2018 Engarde 1 File
 # 2014-2017 Engarde multi files
 # 2005-2013 LH
-directories = [
+directories = [    
+    'C:\\Code\\FencingSAResults\\2017',
     'C:\\Code\\FencingSAResults\\2018',
     'C:\\Code\\FencingSAResults\\2019',
     'C:\\Code\\FencingSAResults\\2021',
     'C:\\Code\\FencingSAResults\\2020'
     ]
+
+directores = ['C:\\Code\\FencingSAResults\\2017']
+directores = ['C:\\Code\\FencingSAResults\\2022']
 
 for directoryPath in directories:
     files = os.listdir(directoryPath)
@@ -370,6 +393,9 @@ for directoryPath in directories:
 
     for file in files:
         if not file.endswith(".htm") and not file.endswith('.html'):
+            continue
+
+        if '20170305OME' not in file:
             continue
 
         try:
