@@ -7,6 +7,7 @@ import re
 import os
 import hashlib
 import json
+import numpy as np
 
 class Bout:
     fileName = None
@@ -368,6 +369,33 @@ def findBellepouleBoutHistory(table, topSeed, colIndex, startRowIndex, endRowInd
 
 def readEngardeOneFile(filePath):
     print('Engard read: '+ filePath)
+    fileName = os.path.basename(filePath)
+    fileName = os.path.splitext(fileName)[0]
+
+    file = open(filePath)
+    htmlText = file.read()
+    comp = getCompInfo(fileName)
+
+    soup = BeautifulSoup(htmlText, 'html.parser')
+    table = soup.find('table', {'class': 'tableau'})
+    rows = table.find_all('tr')
+    bouts = []
+    rows = rows[1:]
+
+    rowCount = len(rows)
+    colCount = round(log2(rowCount)) + 2
+    data = np.empty(rowCount * colCount, dtype=object).reshape(rowCount, colCount)
+    for rowIndex, row in enumerate(rows):
+        columns = row.find_all('td')
+        while columns[-1].text.strip() == '':
+            columns = columns[0:-1]
+        for colIndex, col in enumerate(columns):
+            cellValue = str(col.text.strip())
+            if cellValue != '':
+                data[rowIndex][colIndex] = cellValue
+    
+    print(data)
+
     return []
 
 bouts = []
@@ -385,7 +413,6 @@ directories = [
     ]
 
 directores = ['C:\\Code\\FencingSAResults\\2017']
-directores = ['C:\\Code\\FencingSAResults\\2022']
 
 for directoryPath in directories:
     files = os.listdir(directoryPath)
@@ -395,7 +422,7 @@ for directoryPath in directories:
         if not file.endswith(".htm") and not file.endswith('.html'):
             continue
 
-        if '20170305OME' not in file:
+        if '20170521IF' not in file:
             continue
 
         try:
