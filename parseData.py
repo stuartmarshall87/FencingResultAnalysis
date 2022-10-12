@@ -383,7 +383,7 @@ def readEngardeOneFile(filePath):
     rows = rows[1:]
 
     rowCount = len(rows)
-    colCount = round(log2(rowCount)) + 2
+    colCount = int(round(log2(rowCount))) + 2
     data = np.empty(rowCount * colCount, dtype=object).reshape(rowCount, colCount)
     for rowIndex, row in enumerate(rows):
         columns = row.find_all('td')
@@ -394,8 +394,51 @@ def readEngardeOneFile(filePath):
             if cellValue != '':
                 data[rowIndex][colIndex] = cellValue
     
+    data = np.delete(data, 2, 1)
+    rowCount = rowCount - 1
     print(data)
+    print(colCount)
+    print(rowCount)
+    for x in range(0, colCount - 1):
+        for y in range(0, rowCount):
+            value = data[y][x]
+            print(str(x) + ', ' + str(y) + ': ' + str(value))
+            if value != None:
+                splitValue = value.split('/')
+                if len(splitValue) > 1:
+                    # We have a bout score.
+                    # Get bout fencers
+                    # Get seeds
+                    # Get winner
+                    bout = Bout()
+                    bout.aScore = splitValue[0]
+                    print(str(x) + ', ' + str(y) + ': ' + str(value))
+                    bout.aName = data[y-1][x]
+                    bout.bScore = splitValue[1]
+                    bouts.append(bout)
+                    
+                    # Find bName
+                    for i in range(y, 0, -1):
+                        cellValue = data[i][x-1]
+                        if cellValue != None and cellValue != bout.aName and len(str(cellValue).split('/')) == 1:
+                            bout.bName = cellValue
+                            break
 
+                    for i in range(y, rowCount - 1, 1):
+                        cellValue = data[i][x-1]
+                        if cellValue != None and cellValue != bout.aName and bout.bName == None:
+                            bout.bName = cellValue
+                            break
+
+    for bout in bouts:
+        print(bout)
+
+    return []
+
+
+    #print(data)
+    for bout in bouts:
+        print(bout)
     return []
 
 bouts = []
