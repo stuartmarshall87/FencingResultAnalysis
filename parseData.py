@@ -395,51 +395,91 @@ def readEngardeOneFile(filePath):
                 data[rowIndex][colIndex] = cellValue
     
     data = np.delete(data, 2, 1)
-    rowCount = rowCount - 1
+    colCount = colCount - 1
+    data = np.delete(data, 0, 1)
+    colCount = colCount - 1
     print(data)
-    print(colCount)
-    print(rowCount)
-    for x in range(0, colCount - 1):
-        for y in range(0, rowCount):
-            value = data[y][x]
-            print(str(x) + ', ' + str(y) + ': ' + str(value))
-            if value != None:
-                splitValue = value.split('/')
-                if len(splitValue) > 1:
-                    # We have a bout score.
-                    # Get bout fencers
-                    # Get seeds
-                    # Get winner
-                    bout = Bout()
-                    bout.aScore = splitValue[0]
-                    print(str(x) + ', ' + str(y) + ': ' + str(value))
-                    bout.aName = data[y-1][x]
-                    bout.bScore = splitValue[1]
-                    bouts.append(bout)
-                    
-                    # Find bName
-                    for i in range(y, 0, -1):
-                        cellValue = data[i][x-1]
-                        if cellValue != None and cellValue != bout.aName and len(str(cellValue).split('/')) == 1:
-                            bout.bName = cellValue
-                            break
 
-                    for i in range(y, rowCount - 1, 1):
-                        cellValue = data[i][x-1]
-                        if cellValue != None and cellValue != bout.aName and bout.bName == None:
-                            bout.bName = cellValue
-                            break
+    bouts = findEngardeBoutHistory(data, 1, colCount - 1, 0, rowCount - 1)
 
     for bout in bouts:
-        print(bout)
-
-    return []
-
-
-    #print(data)
+        bout.fileName = fileName
+        bout.date = comp.date
+        bout.weapon = comp.weapon
+        bout.category = comp.category
+        bout.gender = comp.gender
+        
     for bout in bouts:
-        print(bout)
-    return []
+        print(str(bout))
+    return bouts
+
+def findEngardeBoutHistory(table, topSeed, colIndex, startRowIndex, endRowIndex):
+    bouts = []
+    
+    for i in range(startRowIndex, endRowIndex):
+        fencer = table[i][colIndex]
+        if fencer != None:
+            score = table[i+1][colIndex]
+
+            if score == None:
+                break
+
+            splitScore = score.split('/')            
+
+            # Found a bout
+            bout = Bout()
+            bout.aName = fencer
+            bout.aScore = splitScore[0]
+            bout.bScore = splitScore[1]
+
+            # determine seeds
+            colCount = table.shape[1]
+            roundId = pow(2, colCount - colIndex)
+            bout.roundId = roundId
+            otherSeed = roundId + 1 - topSeed
+            
+            if topSeed%2 == 1:
+                bout.aSeed = topSeed
+                bout.bSeed = otherSeed
+            else:
+                bout.aSeed = otherSeed
+                bout.bSeed = topSeed
+
+            # Find bName
+            for j in range(startRowIndex, i, 1):
+                cellValue = table[j][colIndex-1]
+                if cellValue != None and cellValue != bout.aName and len(str(cellValue).split('/')) == 1:
+                    bout.bName = cellValue
+                    break
+
+            if bout.bName == None:
+                for j in range(i, endRowIndex, 1):
+                    cellValue = table[j][colIndex-1]
+                    if cellValue != None and cellValue != bout.aName:
+                        bout.bName = cellValue
+                        break
+
+            bouts.append(bout)
+            
+            midRowIndex = startRowIndex + round((endRowIndex - startRowIndex) / 2)
+            if topSeed%2 == 1:
+                newBouts = findEngardeBoutHistory(table, topSeed, colIndex - 1, startRowIndex, midRowIndex)
+                for newBout in newBouts:
+                    bouts.append(newBout)
+                newBouts = findEngardeBoutHistory(table, otherSeed, colIndex - 1, midRowIndex, endRowIndex)
+                for newBout in newBouts:
+                    bouts.append(newBout)
+            else:
+                newBouts = findEngardeBoutHistory(table, otherSeed, colIndex - 1, startRowIndex, midRowIndex)
+                for newBout in newBouts:
+                    bouts.append(newBout)
+                newBouts = findEngardeBoutHistory(table, topSeed, colIndex - 1, midRowIndex, endRowIndex)
+                for newBout in newBouts:
+                    bouts.append(newBout)
+
+            break
+
+    return bouts
 
 bouts = []
 # 2020+ Fencing Time
