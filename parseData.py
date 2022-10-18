@@ -368,7 +368,6 @@ def findBellepouleBoutHistory(table, topSeed, colIndex, startRowIndex, endRowInd
     return bouts
 
 def readEngardeOneFile(filePath):
-    print('Engard read: '+ filePath)
     fileName = os.path.basename(filePath)
     fileName = os.path.splitext(fileName)[0]
 
@@ -378,6 +377,8 @@ def readEngardeOneFile(filePath):
 
     soup = BeautifulSoup(htmlText, 'html.parser')
     table = soup.find('table', {'class': 'tableau'})
+    if table == None:
+        return []
     rows = table.find_all('tr')
     bouts = []
     rows = rows[1:]
@@ -398,7 +399,7 @@ def readEngardeOneFile(filePath):
     colCount = colCount - 1
     data = np.delete(data, 0, 1)
     colCount = colCount - 1
-    print(data)
+    #print(data)
 
     bouts = findEngardeBoutHistory(data, 1, colCount - 1, 0, rowCount - 1)
 
@@ -408,9 +409,7 @@ def readEngardeOneFile(filePath):
         bout.weapon = comp.weapon
         bout.category = comp.category
         bout.gender = comp.gender
-        
-    for bout in bouts:
-        print(str(bout))
+
     return bouts
 
 def findEngardeBoutHistory(table, topSeed, colIndex, startRowIndex, endRowIndex):
@@ -419,47 +418,58 @@ def findEngardeBoutHistory(table, topSeed, colIndex, startRowIndex, endRowIndex)
     for i in range(startRowIndex, endRowIndex):
         fencer = table[i][colIndex]
         if fencer != None:
+            nameSplit = fencer.split(' ')
+            fencer = nameSplit[1] + ' ' + nameSplit[0]
             score = table[i+1][colIndex]
 
             if score == None:
                 break
 
-            splitScore = score.split('/')            
-
-            # Found a bout
-            bout = Bout()
-            bout.aName = fencer
-            bout.aScore = splitScore[0]
-            bout.bScore = splitScore[1]
-
             # determine seeds
             colCount = table.shape[1]
             roundId = pow(2, colCount - colIndex)
-            bout.roundId = roundId
             otherSeed = roundId + 1 - topSeed
+
+            splitScore = score.split('/')            
+            if len(splitScore) == 2:
             
-            if topSeed%2 == 1:
-                bout.aSeed = topSeed
-                bout.bSeed = otherSeed
-            else:
-                bout.aSeed = otherSeed
-                bout.bSeed = topSeed
+                # Found a bout
+                bout = Bout()
+                bout.roundId = roundId
+                bout.aName = fencer
+                bout.aScore = splitScore[0]
+                bout.bScore = splitScore[1]
+                
+                if topSeed%2 == 1:
+                    bout.aSeed = topSeed
+                    bout.bSeed = otherSeed
+                else:
+                    bout.aSeed = otherSeed
+                    bout.bSeed = topSeed
 
-            # Find bName
-            for j in range(startRowIndex, i, 1):
-                cellValue = table[j][colIndex-1]
-                if cellValue != None and cellValue != bout.aName and len(str(cellValue).split('/')) == 1:
-                    bout.bName = cellValue
-                    break
+                # Find bName
+                for j in range(startRowIndex, i, 1):
+                    opponentName = table[j][colIndex-1]
+                    if opponentName != None:
+                        nameSplit = opponentName.split(' ')
+                        if len(nameSplit) > 1:
+                            opponentName = nameSplit[1] + ' ' + nameSplit[0]
+                            if opponentName != bout.aName and len(str(opponentName).split('/')) == 1:
+                                bout.bName = opponentName
+                                break
 
-            if bout.bName == None:
-                for j in range(i, endRowIndex, 1):
-                    cellValue = table[j][colIndex-1]
-                    if cellValue != None and cellValue != bout.aName:
-                        bout.bName = cellValue
-                        break
+                if bout.bName == None:
+                    for j in range(i, endRowIndex, 1):
+                        opponentName = table[j][colIndex-1]
+                        if opponentName != None:
+                            nameSplit = opponentName.split(' ')
+                            if len(nameSplit) > 1:
+                                opponentName = nameSplit[1] + ' ' + nameSplit[0]
+                                if opponentName != bout.aName:
+                                    bout.bName = opponentName
+                                    break
 
-            bouts.append(bout)
+                bouts.append(bout)
             
             midRowIndex = startRowIndex + round((endRowIndex - startRowIndex) / 2)
             if topSeed%2 == 1:
@@ -495,7 +505,14 @@ directories = [
     'C:\\Code\\FencingSAResults\\2020'
     ]
 
-directores = ['C:\\Code\\FencingSAResults\\2017']
+directores = [
+    'C:\\Code\\FencingSAResults\\2017',
+    'C:\\Code\\FencingSAResults\\2018',
+    'C:\\Code\\FencingSAResults\\2019',
+    'C:\\Code\\FencingSAResults\\2020',
+    'C:\\Code\\FencingSAResults\\2021',
+    'C:\\Code\\FencingSAResults\\2022'
+]
 
 for directoryPath in directories:
     files = os.listdir(directoryPath)
@@ -503,9 +520,6 @@ for directoryPath in directories:
 
     for file in files:
         if not file.endswith(".htm") and not file.endswith('.html'):
-            continue
-
-        if '20170521IF' not in file:
             continue
 
         try:
