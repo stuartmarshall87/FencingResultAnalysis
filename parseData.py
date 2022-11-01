@@ -419,7 +419,7 @@ def findEngardeBoutHistory(table, topSeed, colIndex, startRowIndex, endRowIndex)
         fencer = table[i][colIndex]
         if fencer != None:
             nameSplit = fencer.split(' ')
-            fencer = nameSplit[1] + ' ' + nameSplit[0]
+            fencer = nameSplit[1] + ' ' + nameSplit[0][0] + nameSplit[0][1:].lower()
             score = table[i+1][colIndex]
 
             if score == None:
@@ -453,7 +453,7 @@ def findEngardeBoutHistory(table, topSeed, colIndex, startRowIndex, endRowIndex)
                     if opponentName != None:
                         nameSplit = opponentName.split(' ')
                         if len(nameSplit) > 1:
-                            opponentName = nameSplit[1] + ' ' + nameSplit[0]
+                            opponentName = nameSplit[1] + ' ' + nameSplit[0][0] + nameSplit[0][1:].lower()
                             if opponentName != bout.aName and len(str(opponentName).split('/')) == 1:
                                 bout.bName = opponentName
                                 break
@@ -464,7 +464,7 @@ def findEngardeBoutHistory(table, topSeed, colIndex, startRowIndex, endRowIndex)
                         if opponentName != None:
                             nameSplit = opponentName.split(' ')
                             if len(nameSplit) > 1:
-                                opponentName = nameSplit[1] + ' ' + nameSplit[0]
+                                opponentName = nameSplit[1] + ' ' + nameSplit[0][0] + nameSplit[0][1:].lower()
                                 if opponentName != bout.aName:
                                     bout.bName = opponentName
                                     break
