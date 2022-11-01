@@ -501,18 +501,10 @@ directories = [
     'C:\\Code\\FencingSAResults\\2017',
     'C:\\Code\\FencingSAResults\\2018',
     'C:\\Code\\FencingSAResults\\2019',
-    'C:\\Code\\FencingSAResults\\2021',
-    'C:\\Code\\FencingSAResults\\2020'
-    ]
-
-directores = [
-    'C:\\Code\\FencingSAResults\\2017',
-    'C:\\Code\\FencingSAResults\\2018',
-    'C:\\Code\\FencingSAResults\\2019',
     'C:\\Code\\FencingSAResults\\2020',
     'C:\\Code\\FencingSAResults\\2021',
     'C:\\Code\\FencingSAResults\\2022'
-]
+    ]
 
 for directoryPath in directories:
     files = os.listdir(directoryPath)
@@ -527,13 +519,15 @@ for directoryPath in directories:
             hash = hashlib.md5(open(path,'rb').read()).hexdigest()
             if hash in hashes:
                 continue
-            
+
             hashes.append(hash)
             bouts = bouts + readFile(path)
         except BaseException as err:
             print('Error ' + file)
             print(err)
             raise
+        
+    print(len(bouts))
 with open("C:\\Code\\FSAAnalysis\\FencingResultAnalysis\\nameLinks.json") as json_file:
     nameLinks = json.load(json_file)
 
