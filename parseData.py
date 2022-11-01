@@ -386,9 +386,10 @@ def readEngardeOneFile(filePath):
     rowCount = len(rows)
     colCount = int(round(log2(rowCount))) + 2
     data = np.empty(rowCount * colCount, dtype=object).reshape(rowCount, colCount)
+
     for rowIndex, row in enumerate(rows):
         columns = row.find_all('td')
-        while columns[-1].text.strip() == '':
+        while len(columns) > 0 and columns[-1].text.strip() == '':
             columns = columns[0:-1]
         for colIndex, col in enumerate(columns):
             cellValue = str(col.text.strip())
@@ -498,6 +499,9 @@ bouts = []
 # 2014-2017 Engarde multi files
 # 2005-2013 LH
 directories = [    
+    'C:\\Code\\FencingSAResults\\2014',
+    'C:\\Code\\FencingSAResults\\2015',
+    'C:\\Code\\FencingSAResults\\2016',
     'C:\\Code\\FencingSAResults\\2017',
     'C:\\Code\\FencingSAResults\\2018',
     'C:\\Code\\FencingSAResults\\2019',
@@ -527,7 +531,6 @@ for directoryPath in directories:
             print(err)
             raise
         
-    print(len(bouts))
 with open("C:\\Code\\FSAAnalysis\\FencingResultAnalysis\\nameLinks.json") as json_file:
     nameLinks = json.load(json_file)
 
