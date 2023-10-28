@@ -531,7 +531,7 @@ for directoryPath in directories:
             print(err)
             raise
         
-with open("C:\\Code\\FSAAnalysis\\FencingResultAnalysis\\nameLinks.json") as json_file:
+with open(".\\nameLinks.json") as json_file:
     nameLinks = json.load(json_file)
 
 for bout in bouts:
@@ -541,5 +541,5 @@ for bout in bouts:
         bout.bName = nameLinks[bout.bName]
 
 json_string = json.dumps([ob.__dict__ for ob in bouts])
-with open("C:\\Code\\FSAAnalysis\\FencingResultAnalysis\\bouts.json", "w") as file:
+with open(".\\bouts.json", "w") as file:
     file.write(json_string)
