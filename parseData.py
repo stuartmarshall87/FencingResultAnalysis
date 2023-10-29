@@ -43,7 +43,6 @@ class CompInfo:
     category = None
     gender = None
 
-
 def getCategoryName(categoryCode):
     if categoryCode == "oa": return 'Open A'
     if categoryCode == "ob": return 'Open B'
@@ -87,7 +86,7 @@ def readFile(filePath):
         print('Invalid file: ' + fileName)
         return []
     if comp.category is None:
-        #print('Unknown comp category:' + fileName)
+        print('Unknown comp category:' + fileName)
         return []
     elif 'Team' in comp.category:
         return []
@@ -102,7 +101,11 @@ def readFile(filePath):
         return readBellepoule(filePath)
     if soup.find('meta', {'content': 'Engarde'}):
         return readEngardeOneFile(filePath)
-    return []
+    if soup.find('table', {'class': 'rankingTable'}):
+        return readLanceHolden(filePath)
+    else:
+        print('Unknown file type')
+        return []
 
 def getCompInfo(fileName):
     comp = CompInfo()
@@ -324,7 +327,6 @@ def findBellepouleBoutHistory(table, topSeed, colIndex, startRowIndex, endRowInd
                         bout.bScore = int(scores[1][1:])
                     bout.bName = fullName
                     bout.aScore = int(scores[0])
-                #print(bout.aScore, bout.bScore)
             else:
                 return bouts
 
@@ -400,7 +402,6 @@ def readEngardeOneFile(filePath):
     colCount = colCount - 1
     data = np.delete(data, 0, 1)
     colCount = colCount - 1
-    #print(data)
 
     bouts = findEngardeBoutHistory(data, 1, colCount - 1, 0, rowCount - 1)
 
@@ -492,6 +493,129 @@ def findEngardeBoutHistory(table, topSeed, colIndex, startRowIndex, endRowIndex)
 
     return bouts
 
+# Custom format defined by Lance Holden
+def readLanceHolden(filePath):
+    fileName = os.path.basename(filePath)
+    fileName = os.path.splitext(fileName)[0]
+
+    file = open(filePath)
+    htmlText = file.read()
+    comp = getCompInfo(fileName)
+
+    soup = BeautifulSoup(htmlText, 'html.parser')
+    tables = soup.find_all('table')
+    table = soup.find('table')
+    for t in tables:
+        if not t.has_attr('class'):
+            table = t
+            break
+    
+    rows = table.find_all('tr')
+    noColumns = len(rows[0].find_all('td'))
+    bouts = findLanceHoldenBoutHistory(table, 1, noColumns - 1, 0, len(rows))
+    for bout in bouts:
+        bout.fileName = fileName
+        bout.date = comp.date
+        bout.weapon = comp.weapon
+        bout.category = comp.category
+        bout.gender = comp.gender
+    return bouts
+
+class LHResult:
+    winnerName: str
+    winnerScore: int
+    loserScore: int
+
+def findLanceHoldenBoutHistory(table, topSeed, colIndex, startRowIndex, endRowIndex):
+    if colIndex <= 1:
+        return []
+    rows = table.find_all('tr')
+    bouts = []
+    for rowIndex in range(startRowIndex, endRowIndex):
+        cells = rows[rowIndex].find_all('td')
+        cell = cells[colIndex]
+        cellText = cell.text.strip()
+        if len(cellText) != 0:
+            if '(' not in cellText:
+                return bouts
+            else:
+                # Find winner name and score
+                winner = lanceHoldenExtractValues(cellText)
+                if winner is None:
+                    return bouts
+
+    # determine seeds
+    colCount = len(rows[0].find_all('td'))
+    roundId = pow(2, colCount - colIndex)
+    otherSeed = roundId + 1 - topSeed
+
+    # Found a bout
+    bout = Bout()
+    bout.roundId = roundId
+    
+    if topSeed%2 == 1:
+        bout.aSeed = topSeed
+        bout.bSeed = otherSeed
+    else:
+        bout.aSeed = otherSeed
+        bout.bSeed = topSeed
+
+    # Find loser name
+    for rowIndex in range(startRowIndex, endRowIndex):
+        cells = rows[rowIndex].find_all('td')
+        cell = cells[colIndex - 1]
+        cellText = str(cell.text.strip())
+        if len(cellText) != 0:
+            if '(' not in cellText:
+                name = cellText
+            else:
+                cellDetails = lanceHoldenExtractValues(cellText)
+                name = cellDetails.winnerName
+
+            if bout.aName == None:
+                bout.aName = name
+            else:
+                bout.bName = name
+
+    if bout.aName == winner.winnerName:
+        bout.aScore = winner.winnerScore
+        bout.bScore = winner.loserScore
+    else:
+        bout.bScore = winner.winnerScore
+        bout.aScore = winner.loserScore
+
+    bouts.append(bout)
+
+    # Find previous bouts
+    midRowIndex = startRowIndex + round((endRowIndex - startRowIndex) / 2)
+    if topSeed%2 == 1:
+        newBouts = findLanceHoldenBoutHistory(table, topSeed, colIndex - 1, startRowIndex, midRowIndex)
+        for newBout in newBouts:
+            bouts.append(newBout)
+        newBouts = findLanceHoldenBoutHistory(table, otherSeed, colIndex - 1, midRowIndex, endRowIndex)
+        for newBout in newBouts:
+            bouts.append(newBout)
+    else:
+        newBouts = findLanceHoldenBoutHistory(table, otherSeed, colIndex - 1, startRowIndex, midRowIndex)
+        for newBout in newBouts:
+            bouts.append(newBout)
+        newBouts = findLanceHoldenBoutHistory(table, topSeed, colIndex - 1, midRowIndex, endRowIndex)
+        for newBout in newBouts:
+            bouts.append(newBout)
+    return bouts
+
+def lanceHoldenExtractValues(text: str):
+    for i in range(0, len(text) - 1):
+        charIndex = len(text) - 1 - i
+        if (text[charIndex] == '('):
+            scoreText = text[charIndex + 1:-1]
+            result = LHResult()
+            result.winnerName = text[0:charIndex].strip()
+            result.winnerScore = scoreText.split('-')[0]
+            result.loserScore = scoreText.split('-')[1]
+            return result
+
+
 bouts = []
 # 2020+ Fencing Time
 # 2018 Bellepoule
@@ -499,15 +623,16 @@ bouts = []
 # 2014-2017 Engarde multi files
 # 2005-2013 LH
 directories = [    
-    'C:\\Code\\FencingSAResults\\2014',
-    'C:\\Code\\FencingSAResults\\2015',
-    'C:\\Code\\FencingSAResults\\2016',
-    'C:\\Code\\FencingSAResults\\2017',
-    'C:\\Code\\FencingSAResults\\2018',
-    'C:\\Code\\FencingSAResults\\2019',
-    'C:\\Code\\FencingSAResults\\2020',
-    'C:\\Code\\FencingSAResults\\2021',
-    'C:\\Code\\FencingSAResults\\2022'
+    'C:\\Code\\FencingSAResults2\\2013',
+    'C:\\Code\\FencingSAResults2\\2014',
+    'C:\\Code\\FencingSAResults2\\2015',
+    'C:\\Code\\FencingSAResults2\\2016',
+    'C:\\Code\\FencingSAResults2\\2017',
+    'C:\\Code\\FencingSAResults2\\2018',
+    'C:\\Code\\FencingSAResults2\\2019',
+    'C:\\Code\\FencingSAResults2\\2020',
+    'C:\\Code\\FencingSAResults2\\2021',
+    'C:\\Code\\FencingSAResults2\\2022'
     ]
 
 for directoryPath in directories:
