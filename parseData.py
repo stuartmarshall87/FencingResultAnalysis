@@ -52,17 +52,25 @@ def getCategoryName(categoryCode):
     if categoryCode == "i": return 'Intermediate'
     if categoryCode == "n": return 'Novice'
     if categoryCode == "ot": return 'Open Teams'
+    if categoryCode == "oat": return 'Open Teams'
     if categoryCode == "u9": return 'U9'
     if categoryCode == "u11": return 'U11'
     if categoryCode == "u13": return 'U13'
+    if categoryCode == "u10": return 'U10'
+    if categoryCode == "u12": return 'U12'
+    if categoryCode == "u14": return 'U14'
     if categoryCode == "u13t": return 'U13 Teams'
     if categoryCode == "u14t": return 'U14 Teams'
+    if categoryCode == "u17t": return 'U17 Teams'
     if categoryCode == "t": return 'Teams'
     if categoryCode == "u15": return 'U15'
+    if categoryCode == "u17": return 'U17'
+    if categoryCode == "u20": return 'U20'
     if categoryCode == "u1720": return 'U17/U20'
     if categoryCode == "v": return 'Veterans'
     if categoryCode == "yi": return 'Youth Intermediate'
     if categoryCode == "vt": return 'Veteran Teams'
+    if categoryCode == 'u20t' : return 'U20 Teams'
     return None
 
 def getWeaponName(weapon):
@@ -104,7 +112,7 @@ def readFile(filePath):
     if soup.find('table', {'class': 'rankingTable'}):
         return readLanceHolden(filePath)
     else:
-        print('Unknown file type')
+        print('Unknown file type: ' + filePath)
         return []
 
 def getCompInfo(fileName):
@@ -577,14 +585,15 @@ def findLanceHoldenBoutHistory(table, topSeed, colIndex, startRowIndex, endRowIn
             else:
                 bout.bName = name
 
-    if bout.aName == winner.winnerName:
-        bout.aScore = winner.winnerScore
-        bout.bScore = winner.loserScore
-    else:
-        bout.bScore = winner.winnerScore
-        bout.aScore = winner.loserScore
+    if hasattr(winner, 'winnerScore'):
+        if bout.aName == winner.winnerName:
+            bout.aScore = winner.winnerScore
+            bout.bScore = winner.loserScore
+        else:
+            bout.bScore = winner.winnerScore
+            bout.aScore = winner.loserScore
 
-    bouts.append(bout)
+        bouts.append(bout)
 
     # Find previous bouts
     midRowIndex = startRowIndex + round((endRowIndex - startRowIndex) / 2)
@@ -611,8 +620,9 @@ def lanceHoldenExtractValues(text: str):
             scoreText = text[charIndex + 1:-1]
             result = LHResult()
             result.winnerName = text[0:charIndex].strip()
-            result.winnerScore = scoreText.split('-')[0]
-            result.loserScore = scoreText.split('-')[1]
+            if scoreText != 'ex':
+                result.winnerScore = scoreText.split('-')[0]
+                result.loserScore = scoreText.split('-')[1]
             return result
 
 
@@ -622,7 +632,15 @@ bouts = []
 # 2017-2018 Engarde 1 File
 # 2014-2017 Engarde multi files
 # 2005-2013 LH
-directories = [    
+directories = [
+    'C:\\Code\\FencingSAResults2\\2005',
+    'C:\\Code\\FencingSAResults2\\2006',
+    'C:\\Code\\FencingSAResults2\\2007',
+    'C:\\Code\\FencingSAResults2\\2008',
+    'C:\\Code\\FencingSAResults2\\2009',
+    'C:\\Code\\FencingSAResults2\\2010',
+    'C:\\Code\\FencingSAResults2\\2011',
+    'C:\\Code\\FencingSAResults2\\2012',
     'C:\\Code\\FencingSAResults2\\2013',
     'C:\\Code\\FencingSAResults2\\2014',
     'C:\\Code\\FencingSAResults2\\2015',
