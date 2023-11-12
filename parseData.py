@@ -351,7 +351,9 @@ def findBellepouleBoutHistory(table, topSeed, colIndex, startRowIndex, endRowInd
             if otherFullName != fullName:
                 if bout.aName is None:
                     bout.aName = otherFullName
+                    bout.bName = fullName
                 else:
+                    bout.aName = fullName
                     bout.bName = otherFullName
 
     if bout.aScore == 0 and bout.bScore == 0:
