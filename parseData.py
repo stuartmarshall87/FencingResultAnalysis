@@ -266,7 +266,7 @@ def readBellepoule(filePath):
     fileName = os.path.basename(filePath)
     fileName = os.path.splitext(fileName)[0]
 
-    file = open(filePath)
+    file = open(filePath, encoding='UTF-8')
     htmlText = file.read()
     comp = getCompInfo(fileName)
 
@@ -347,7 +347,7 @@ def findBellepouleBoutHistory(table, topSeed, colIndex, startRowIndex, endRowInd
             firstName = cell.find('span', {'class': 'first_name'}).text
             name = cell.find('span', {'class': 'name'}).text
             otherFullName = str(firstName) + str(name)
-            otherFullName = otherFullName.strip()
+            otherFullName = str(otherFullName.strip())
             if otherFullName != fullName:
                 if bout.aName is None:
                     bout.aName = otherFullName
@@ -359,7 +359,9 @@ def findBellepouleBoutHistory(table, topSeed, colIndex, startRowIndex, endRowInd
     if bout.aScore == 0 and bout.bScore == 0:
         return bouts
 
-    bouts.append(bout)
+
+    if bout.aScore is not None:
+        bouts.append(bout)
     midRowIndex = startRowIndex + round((endRowIndex - startRowIndex) / 2)
 
     if topSeed%2 == 1:
