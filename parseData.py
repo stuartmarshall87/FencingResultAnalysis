@@ -411,7 +411,7 @@ def readEngardeOneFile(filePath):
     data = np.delete(data, 0, 1)
     colCount = colCount - 1
 
-    bouts = findEngardeBoutHistory(data, 1, colCount - 1, 0, rowCount - 1)
+    bouts = findEngardeBoutHistory(data, 1, colCount - 1, 0, rowCount)
 
     for bout in bouts:
         bout.fileName = fileName
@@ -425,13 +425,13 @@ def readEngardeOneFile(filePath):
 def findEngardeBoutHistory(table, topSeed, colIndex, startRowIndex, endRowIndex):
     bouts = []
     
-    for i in range(startRowIndex, endRowIndex):
+    for i in range(startRowIndex, endRowIndex - 1):
         fencer = table[i][colIndex]
         if fencer != None:
             nameSplit = fencer.split(' ')
-            fencer = nameSplit[1] + ' ' + nameSplit[0][0] + nameSplit[0][1:].lower()
-            score = table[i+1][colIndex]
-
+            fencer = nameSplit[1] + ' ' + nameSplit[0][0] + nameSplit[0][1:].lower()            
+            score = table[i + 1][colIndex]
+ 
             if score == None:
                 break
 
