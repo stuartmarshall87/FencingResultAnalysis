@@ -8,6 +8,8 @@ import os
 import hashlib
 import json
 import numpy as np
+import copy
+import pandas as pd
 
 class Bout:
     fileName = None
@@ -833,7 +835,29 @@ for bout in bouts:
         bout.aName = nameLinks[bout.aName]
     if bout.bName in nameLinks:
         bout.bName = nameLinks[bout.bName]
+    
+
+data = bouts
+bouts = []
+for bout in data:
+    bouts.append(bout)
+    clone = copy.copy(bout)
+    aName = bout.aName
+    aScore = bout.aScore
+    aSeed = bout.aSeed
+    clone.aName = bout.bName
+    clone.aScore = bout.bScore
+    clone.aSeed = bout.bSeed
+    clone.bName = aName
+    clone.bScore = aScore
+    clone.bSeed = aSeed
+    bouts.append(clone)
 
 json_string = json.dumps([ob.__dict__ for ob in bouts])
 with open(".\\bouts.json", "w") as file:
     file.write(json_string)
+
+
+df = pd.read_json('bouts.json')
+
+csv = df.to_csv('bouts.csv', index=False )
