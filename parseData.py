@@ -103,7 +103,7 @@ def readFile(filePath):
     htmlText = file.read()
     soup = BeautifulSoup(htmlText, 'html.parser')
 
-    if soup.html.get('xmlns:ft') == 'http://www.fencingtime.com':
+    if soup.html != None and soup.html.get('xmlns:ft') == 'http://www.fencingtime.com':
         return readFencingTime(filePath)
     if soup.find('a', {'href': 'http://betton.escrime.free.fr/index.php/bellepoule'}):
         return readBellepoule(filePath)
@@ -111,9 +111,11 @@ def readFile(filePath):
         return readEngardeOneFile(filePath)
     if soup.find('table', {'class': 'rankingTable'}):
         return readLanceHolden(filePath)
-    else:
-        print('Unknown file type: ' + filePath)
-        return []
+    if soup.find('table', {'class': 'elimTableau'}):
+        return readFencingTimeLive(filePath)
+    
+    print('Unknown file type: ' + filePath)
+    return []
 
 def getCompInfo(fileName):
     comp = CompInfo()
@@ -147,7 +149,147 @@ def getCompInfo(fileName):
         comp.category = category
 
     return comp
-        
+
+def readFencingTimeLive(filePath):
+    fileName = os.path.basename(filePath)
+    fileName = os.path.splitext(fileName)[0]
+
+    file = open(filePath)
+    htmlText = file.read()
+    comp = getCompInfo(fileName)
+
+    soup = BeautifulSoup(htmlText, 'html.parser')
+    table = soup.find('table', {'class': 'elimTableau'})
+    if table == None:
+        return []
+    rows = table.find_all('tr')
+    bouts = []
+    rows = rows[1:]
+
+    rowCount = len(rows)
+    colCount = int(round(log2(rowCount))) + 2
+    data = np.empty(rowCount * colCount, dtype=object).reshape(rowCount, colCount) 
+
+    for rowIndex, row in enumerate(rows):
+        columns = row.find_all('td')
+        while len(columns) > 0 and columns[-1].text.strip() == '':
+            columns = columns[0:-1]
+        for colIndex, col in enumerate(columns):
+            cellValue = col
+            if cellValue != '':
+                data[rowIndex][colIndex] = cellValue
+
+    #data = np.delete(data, 2, 1)
+    #colCount = colCount - 1
+    #data = np.delete(data, 0, 1)
+    colCount = colCount - 1
+
+    bouts = readFencingTimeLiveBoutHistory(data, 1, colCount - 2, 0, rowCount)
+
+    for bout in bouts:
+        bout.fileName = fileName
+        bout.date = comp.date
+        bout.weapon = comp.weapon
+        bout.category = comp.category
+        bout.gender = comp.gender
+
+    return bouts
+
+def readFencingTimeLiveBoutHistory(table, topSeed, colIndex, startRowIndex, endRowIndex):
+    if colIndex < 0:
+        return []
+    bouts = []
+    rowCount = len(table)
+    colCount = int(round(log2(rowCount)))
+    roundId = pow(2, colCount - colIndex)
+    otherSeed = roundId + 1 - topSeed
+
+    for i in range(startRowIndex, endRowIndex):
+        winner = table[i][colIndex]
+        if winner != None:
+            winnerSeed = winner.find('span', {'class': 'tseed'})
+            if winnerSeed == None:
+                continue
+            winnerSeed = winnerSeed.text.strip()[1:-1]
+            winner = winner.find('span', {'class': 'tcfn'}).text + ' ' + winner.find('span', {'class': 'tcln'}).text
+            score = table[i + 1][colIndex]
+            if score != None:
+                score = score.find('span', {'class': 'tsco'})
+                if score == None:
+                    return []
+                score = score.text
+                score = score.split('Ref', 1)[0]
+                if ' - ' in score:
+                    winnerScore = score.split(' - ')[0].strip()
+                    loserScore = score.split(' - ')[1].strip()
+                else:
+                    winnerScore = None
+                    loserScore = None
+                break
+            else:
+                return []
+
+    i = startRowIndex
+    while i < endRowIndex:
+        fencer = table[i][colIndex - 1]
+        if fencer != None: 
+            loserSeed = fencer.find('span', {'class': 'tseed'})
+            if loserSeed == None:
+                i += 1
+                continue
+            loserSeed = loserSeed.text.strip()[1:-1]
+            loser = fencer.find('span', {'class': 'tcfn'}).text + ' ' + fencer.find('span', {'class': 'tcln'}).text
+
+            if loser == winner:
+                loserSeed = None
+                loser = None
+                i += 1
+                continue
+
+            else:
+                i += 1
+                break
+        i += 1
+    
+    bout = Bout()
+    bout.roundId = roundId
+    
+    if winnerSeed == loserSeed:
+        bout.aSeed = loserSeed
+        bout.aName = loser
+        bout.aScore = loserScore
+        bout.bSeed = winnerSeed
+        bout.bName = winner
+        bout.bScore = winnerScore
+    else:
+        bout.aSeed = winnerSeed
+        bout.aName = winner
+        bout.aScore = winnerScore
+        bout.bSeed = loserSeed
+        bout.bName = loser
+        bout.bScore = loserScore
+    
+    if bout.aScore != None:
+        bouts.append(bout)
+    
+    midRowIndex = startRowIndex + round((endRowIndex - startRowIndex) / 2)
+    if topSeed%2 == 1:
+        newBouts = readFencingTimeLiveBoutHistory(table, topSeed, colIndex - 1, startRowIndex, midRowIndex)
+        for newBout in newBouts:
+            bouts.append(newBout)
+        newBouts = readFencingTimeLiveBoutHistory(table, otherSeed, colIndex - 1, midRowIndex, endRowIndex)
+        for newBout in newBouts:
+            bouts.append(newBout)
+    else:
+        newBouts = readFencingTimeLiveBoutHistory(table, otherSeed, colIndex - 1, startRowIndex, midRowIndex)
+        for newBout in newBouts:
+            bouts.append(newBout)
+        newBouts = readFencingTimeLiveBoutHistory(table, topSeed, colIndex - 1, midRowIndex, endRowIndex)
+        for newBout in newBouts:
+            bouts.append(newBout)
+
+    return bouts
+
 def readFencingTime(filePath):
     fileName = os.path.basename(filePath)
     fileName = os.path.splitext(fileName)[0]
@@ -654,7 +796,8 @@ directories = [
     'C:\\Code\\FencingSAResults2\\2019',
     'C:\\Code\\FencingSAResults2\\2020',
     'C:\\Code\\FencingSAResults2\\2021',
-    'C:\\Code\\FencingSAResults2\\2022'
+    'C:\\Code\\FencingSAResults2\\2022',
+    'C:\\Code\\FencingSAResults2\\2023'
     ]
 
 for directoryPath in directories:
