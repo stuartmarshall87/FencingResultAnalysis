@@ -751,8 +751,6 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 4,4,1,Jordan Yeomans,Beecher carter,1,10,20061104U15MF,20061104,Foil,U15,Mens
 8,1,8,Beecher Carter,Ega Mosel,10,2,20061104U15MF,20061104,Foil,U15,Mens
 8,8,1,Ega Mosel,Beecher Carter,2,10,20061104U15MF,20061104,Foil,U15,Mens
-16,1,16,Beecher Carter,-,0,10,20061104U15MF,20061104,Foil,U15,Mens
-16,16,1,-,Beecher Carter,10,0,20061104U15MF,20061104,Foil,U15,Mens
 16,9,8,Ega Mosel,Harry Marlow,9,10,20061104U15MF,20061104,Foil,U15,Mens
 16,8,9,Harry Marlow,Ega Mosel,10,9,20061104U15MF,20061104,Foil,U15,Mens
 8,5,4,Jordan Yeomans,Johnathan McKenzie,3,10,20061104U15MF,20061104,Foil,U15,Mens
@@ -765,66 +763,40 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 4,2,3,Timothy Gibson,Joel Dignam,10,5,20061104U15MF,20061104,Foil,U15,Mens
 8,3,6,Joel Dignam,Jackson Michael,2,10,20061104U15MF,20061104,Foil,U15,Mens
 8,6,3,Jackson Michael,Joel Dignam,10,2,20061104U15MF,20061104,Foil,U15,Mens
-16,3,14,Joel Dignam,-,0,10,20061104U15MF,20061104,Foil,U15,Mens
-16,14,3,-,Joel Dignam,10,0,20061104U15MF,20061104,Foil,U15,Mens
 16,11,6,Jackson Michael,Michael Dzodzos,6,10,20061104U15MF,20061104,Foil,U15,Mens
 16,6,11,Michael Dzodzos,Jackson Michael,10,6,20061104U15MF,20061104,Foil,U15,Mens
 8,7,2,Alexander Parsons,Timothy Gibson,10,1,20061104U15MF,20061104,Foil,U15,Mens
 8,2,7,Timothy Gibson,Alexander Parsons,1,10,20061104U15MF,20061104,Foil,U15,Mens
 16,7,10,Alexander Parsons,Timothy Chambers,0,10,20061104U15MF,20061104,Foil,U15,Mens
 16,10,7,Timothy Chambers,Alexander Parsons,10,0,20061104U15MF,20061104,Foil,U15,Mens
-16,15,2,-,Timothy Gibson,10,0,20061104U15MF,20061104,Foil,U15,Mens
-16,2,15,Timothy Gibson,-,0,10,20061104U15MF,20061104,Foil,U15,Mens
 2,1,2,Stuart Marshall,Chris Carter,14,15,20061104U20E,20061104,Epee,U20,
 2,2,1,Chris Carter,Stuart Marshall,15,14,20061104U20E,20061104,Epee,U20,
 4,1,4,Stuart Marshall,Beecher Carter,13,15,20061104U20E,20061104,Epee,U20,
 4,4,1,Beecher Carter,Stuart Marshall,15,13,20061104U20E,20061104,Epee,U20,
 8,1,8,Stuart Marshall,Jordan Yeomans,4,15,20061104U20E,20061104,Epee,U20,
 8,8,1,Jordan Yeomans,Stuart Marshall,15,4,20061104U20E,20061104,Epee,U20,
-16,1,16,Stuart Marshall,-,0,15,20061104U20E,20061104,Epee,U20,
-16,16,1,-,Stuart Marshall,15,0,20061104U20E,20061104,Epee,U20,
 16,9,8,Todd Horton,Jordan Yeomans,15,7,20061104U20E,20061104,Epee,U20,
 16,8,9,Jordan Yeomans,Todd Horton,7,15,20061104U20E,20061104,Epee,U20,
 8,5,4,Tim Gibson,Beecher Carter,15,13,20061104U20E,20061104,Epee,U20,
 8,4,5,Beecher Carter,Tim Gibson,13,15,20061104U20E,20061104,Epee,U20,
-16,5,12,Tim Gibson,-,0,15,20061104U20E,20061104,Epee,U20,
-16,12,5,-,Tim Gibson,15,0,20061104U20E,20061104,Epee,U20,
-16,13,4,-,Beecher Carter,15,0,20061104U20E,20061104,Epee,U20,
-16,4,13,Beecher Carter,-,0,15,20061104U20E,20061104,Epee,U20,
 4,3,2,Chris Carter,Liam Wittert,9,15,20061104U20E,20061104,Epee,U20,
 4,2,3,Liam Wittert,Chris Carter,15,9,20061104U20E,20061104,Epee,U20,
 8,3,6,Chris Carter,Ursula Menz,0,15,20061104U20E,20061104,Epee,U20,
 8,6,3,Ursula Menz,Chris Carter,15,0,20061104U20E,20061104,Epee,U20,
-16,3,14,Chris Carter,-,0,15,20061104U20E,20061104,Epee,U20,
-16,14,3,-,Chris Carter,15,0,20061104U20E,20061104,Epee,U20,
-16,11,6,-,Ursula Menz,15,0,20061104U20E,20061104,Epee,U20,
-16,6,11,Ursula Menz,-,0,15,20061104U20E,20061104,Epee,U20,
 8,7,2,Matilda Menz,Liam Wittert,15,0,20061104U20E,20061104,Epee,U20,
 8,2,7,Liam Wittert,Matilda Menz,0,15,20061104U20E,20061104,Epee,U20,
-16,7,10,Matilda Menz,-,0,15,20061104U20E,20061104,Epee,U20,
-16,10,7,-,Matilda Menz,15,0,20061104U20E,20061104,Epee,U20,
-16,15,2,-,Liam Wittert,15,0,20061104U20E,20061104,Epee,U20,
-16,2,15,Liam Wittert,-,0,15,20061104U20E,20061104,Epee,U20,
 2,1,2,Tim Gibson,Chris Carter,15,4,20061104U20MF,20061104,Foil,U20,Mens
 2,2,1,Chris Carter,Tim Gibson,4,15,20061104U20MF,20061104,Foil,U20,Mens
 4,1,4,Joel Dignam,Tim Gibson,9,8,20061104U20MF,20061104,Foil,U20,Mens
 4,4,1,Tim Gibson,Joel Dignam,8,9,20061104U20MF,20061104,Foil,U20,Mens
-8,1,8,Joel Dignam,-,0,15,20061104U20MF,20061104,Foil,U20,Mens
-8,8,1,-,Joel Dignam,15,0,20061104U20MF,20061104,Foil,U20,Mens
 8,5,4,Jordan Yeomans,Tim Gibson,15,6,20061104U20MF,20061104,Foil,U20,Mens
 8,4,5,Tim Gibson,Jordan Yeomans,6,15,20061104U20MF,20061104,Foil,U20,Mens
 4,3,2,Beecher Carter,Chris Carter,15,7,20061104U20MF,20061104,Foil,U20,Mens
 4,2,3,Chris Carter,Beecher Carter,7,15,20061104U20MF,20061104,Foil,U20,Mens
-8,3,6,Beecher Carter,-,0,15,20061104U20MF,20061104,Foil,U20,Mens
-8,6,3,-,Beecher Carter,15,0,20061104U20MF,20061104,Foil,U20,Mens
-8,7,2,-,Chris Carter,15,0,20061104U20MF,20061104,Foil,U20,Mens
-8,2,7,Chris Carter,-,0,15,20061104U20MF,20061104,Foil,U20,Mens
 2,1,2,Lara Tutty,Megan Howard,15,13,20061104U20WF,20061104,Foil,U20,Womens
 2,2,1,Megan Howard,Lara Tutty,13,15,20061104U20WF,20061104,Foil,U20,Womens
 4,1,4,Lara Tutty,Ursula Menz,11,15,20061104U20WF,20061104,Foil,U20,Womens
 4,4,1,Ursula Menz,Lara Tutty,15,11,20061104U20WF,20061104,Foil,U20,Womens
-8,1,8,Lara Tutty,-,0,15,20061104U20WF,20061104,Foil,U20,Womens
-8,8,1,-,Lara Tutty,15,0,20061104U20WF,20061104,Foil,U20,Womens
 8,5,4,Ursula Menz,Cailin Wigg,10,15,20061104U20WF,20061104,Foil,U20,Womens
 8,4,5,Cailin Wigg,Ursula Menz,15,10,20061104U20WF,20061104,Foil,U20,Womens
 4,3,2,Isabel Dayman,Megan Howard,15,14,20061104U20WF,20061104,Foil,U20,Womens

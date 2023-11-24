@@ -720,6 +720,8 @@ def findLanceHoldenBoutHistory(table, topSeed, colIndex, startRowIndex, endRowIn
         cell = cells[colIndex - 1]
         cellText = str(cell.text.strip())
         if len(cellText) != 0:
+            if cellText == '-':
+                return []
             if '(' not in cellText:
                 name = cellText
             else:
@@ -805,6 +807,8 @@ for directoryPath in directories:
     hashes = []
 
     for file in files:
+        #if '20061104U15MF' not in file and '20061104U20E' not in file and '20061104U20MF' not in file:
+        #    continue
         if not file.endswith(".htm") and not file.endswith('.html'):
             continue
 
