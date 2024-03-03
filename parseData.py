@@ -801,7 +801,8 @@ directories = [
     'C:\\Code\\FencingSAResults2\\2020',
     'C:\\Code\\FencingSAResults2\\2021',
     'C:\\Code\\FencingSAResults2\\2022',
-    'C:\\Code\\FencingSAResults2\\2023'
+    'C:\\Code\\FencingSAResults2\\2023',
+    'C:\\Code\\FencingSAResults2\\2024'
     ]
 
 for directoryPath in directories:
