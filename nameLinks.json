@@ -4,77 +4,541 @@
     "Alexandre (Alex) Burgun": "Alex Burgun",
     "Alexandre Burgun": "Alex Burgun",
     "Stuart (Stu) Marshall": "Stuart Marshall",
-    "Yaxian (Pink) Fang": "Pink Fang",
-    "Malachi (Kai) Loveday": "Kai Loveday",
-    "Zhaoxuan (Edward) Xiao": "Edward Xiao",
-    "Nicholas (Nick) Betts": "Nick Betts",
-    "Benjamin (Ben) Lim": "Ben Lim",
-    "Raymond Rafael (Ray) Andriono": "Ray Andriono",
-    "Sebastian (Seb) Deverson": "Seb Deverson",
-    "Chin Ton Naomi (Naomi) Tang": "Naomi Tang",
-    "No Hit Sherlock ": "",
-    "Engardia Leviosa ": "",
-    "Michael (Mickey Dzodzos D)": "Michael Dzodzos",
-    "Michal DZODZOS": "Michael Dzodzos",
-    "Michael DZOZOS": "Michael Dzodzos",
-    "Ajaay Sureiander": "Aajay Sureiander",
-    "Abert BRESCA": "Albert BRESCA",
-    "Georgina Baratt": "Georgina BARRATT",
-    "Georgie BARRATT": "Georgina BARRATT",
-    "Georgie BARRAT": "Georgina BARRATT",
-    "Georige BARRAT": "Georgina BARRATT",
-    "Georgie Barrett": "Georgina BARRATT",
-    "Georgina Barrat": "Georgina BARRATT",
-    "Alison Wothersponn": "Alison Wotherspoon",
-    "Penny-Dimri JAHAN": "Jahan Penny-Dimri",
-    "Barchiesi MATTEO": "Matteo Barchiesi",
-    "Hoeller MICHAEL": "Michael Hoeller",
-    "Barry PETER": "Peter Barry",
-    "Dzozos MICHAEL": "Michael Dzodzos",
-    "Oerman LACHLAN": "Lachlan Oerman",
 
-"HARTUP RUSSELL": "Russell HARTUP",
-"HOELLER MICHAEL": "Michael HOELLER",
-"BARCHIESI MATTEO": "Matteo BARCHIESI",
-"PAY SHAYNE": "Shayne Pay",
-"HONDROS HENRY": "Henry Hondros",
-"PRING OLIVER": "Oliver Pring",
-"BRESCA ALBERT": "Albert BRESCA",
-"Brian GROSSMANN": "Brian GROSSMAN",
-"DAWSON BRUCE": "Bruce Dawson",
-"Erika KAWASHIMA": "Erica KAWASHIMA",
-"Gabriel BRITTO-MONTEIRO": "Gabriel BRITTO-MONTIERO",
-"Gabriel BRIMO-MONTIERO": "Gabriel BRITTO-MONTIERO",
-"Heath KELLY-CLARK": "Heath KELLY-CLARKE",
-"Henri HONDROS": "Henry HONDROS",
-"Jen Soggee": "Jenn Soggee",
-"Joanna Barry-murhpy": "Joanna Barry-Murphy",
-"John Penny-Dimri": "Jahan Penny-Dimri",
+    "Aex DAVEY" : "Alex DAVEY",
+    "Aiden CARLING" : "Aidan Carling",
+    "Aiden Carling" : "Aidan Carling",
+    "Aiden Cowling" : "Aiden CARLING",
+    "Ajaay SUREIANDER" : "Aajay Sureiander",
+    "Alan Solars" : "Alan SOLLARS",
+    "Alan Sollar" : "Alan SOLLARS",
+    "Alean Janovska" : "Alena Janovska",
+    "Alex DAVIES" : "Alex DAVEY",
+    "Alexandre BURGUN" : "Alex BURGUN",
+    "Alohka SUREIANDER" : "Alokha Sureiander",
+    "Amy Gai ROBERTSON" : "Amy Robertson",
+    "Amy ROBERTSON" : "Amy Robertson",
+    "Amy Robertson" : "Amy Robertson",
+    "Antony SCHOLEFIELD" : "Antony Scofield",
+    "Antony Scholefield" : "Antony Scofield",
+    "Aramis Ilich" : "Aramis Milich",
+    "Arky Vingelis-Plant" : "Myka Vingelis-Plant",
+    "Armado Bonazinga" : "Armando Bonazinga",
+    "Ash MCFADDEN" : "Ashleigh MCFADDEN",
+    "Ash McFadden" : "Ashleigh MCFADDEN",
+    "Ashleigh Kurnatfinski" : "Ashleigh KURBATFINSKI",
+    "Beatriz DAL MORO FERREIRA" : "Isabela Dal Moro Ferreira",
+    "Beatriz Dal Moro Ferreira" : "Isabela Dal Moro Ferreira",
+    "Ben Lam" : "Ben Lam",
+    "Ben Lim" : "Ben Lam",
+    "Benjamin Lam" : "Ben Lam",
+    "Ben Wheaton" : "Ben Wheaton",
+    "Benjamin WHEATON" : "Ben Wheaton",
+    "Benjamin Wheaton" : "Ben Wheaton",
+    
+    "Benjamin ALDERSON" : "Ben Alderson",
+    "Benjamin Alderson" : "Ben Alderson",
 
-"Jon Mackenzie": "Jon Mackenzie",
-"Jonathan Mackenzie": "Jon Mackenzie",
-"Johnathan McKenzie": "Jon Mackenzie",
-"Jon McKenzie": "Jon Mackenzie",
-"Jonathon McKenzie": "Jon Mackenzie",
-"Jonathan McKenzie": "Jon Mackenzie",
-"Johnatan MCKENZIE": "Jon Mackenzie",
-"Jonathon MACKENZIE": "Jon Mackenzie",
-"Johnathan MACKENZIE": "Jon Mackenzie",
-"Keith VINGELIS PLANT": "Keith Vingelis-Plant",
-"Zonko Kurbatfinski":"Zvonko Kurbatfinski",
-"Zonko Kurbatfnski":"Zvonko Kurbatfinski",
-"Kit": "Kit Poon",
-"Jamie Bomi KIM": "Jamie Bomi-kim",
-"Jamie Kim": "Jamie Bomi-kim",
-"Lieghlan Doe": "Leighlan Doe",
-"Leelan Doe": "Leighlan Doe",
-"Mattaeo BARACHEISI": "Matteo BARACHEISI",
-"Merdith Coleman": "Meredith COLEMAN",
-"Mike HOLLER":  "Michael Hoeller",
-"Micheal Hoeller": "Michael Hoeller",
-"Nick": "Nick Pittman",
-"Nick PITMAN": "Nick Pittman",
-"Nicholas PITTMAN": "Nick Pittman",
-"Nic PITMAN": "Nick Pittman",
-"Nicholas PITMAN": "Nick Pittman"
+    "Bob Kounuov" : "Bob KOUNOV",
+    "Brad DARE" : "Bradley DARE",
+    "Brad Dare" : "Bradley DARE",
+    "Bradly DANE" : "Bradley DARE",
+
+    "Cameron SEIDAL" : "Cameron Seidel",
+    "Cameron SIEDEL" : "Cameron Seidel",
+    "Cameron Siedel" : "Cameron Seidel",
+
+    "Cayton FERGUSON" : "Clayton Ferguson",
+    "Clayton FERGUSON" : "Clayton Ferguson",
+    "Clayton Ferguson": "Clayton Ferguson",
+
+    "Ceska DULLONA" : "Ceska Dulona",
+    "Ceska Dulona" : "Ceska Dullona",
+
+    "Cezar PEKALMAN" : "Cezar PEKERMAN",
+    "Cezar PEKELMAN" : "Cezar PEKERMAN",
+    "Cezar PEKERMAN" : "Cezar PEKERMAN",
+
+    "Charlie DIPPY" : "Charlotte Dippy",
+    "Charlie Dippy" : "Charlotte Dippy",
+
+    "Charlie WESTALL" : "Charlie WESTWELL",
+
+    "Cherie SAKOVITS" : "Cherie Sakovits",
+    "Cherie Sakovits" : "Cherie Sakovits",
+    "Cheska Dullona" : "Ceska DULLONA",
+    "Cheung JAY" : "Jay CHEUNG",
+    "Chris CARTER" : "Chris Carter",
+    "Chris Carter" : "Chris Carter",
+    "Christian FERGUSON" : "Christian Ferguson",
+    "Christian Ferguson" : "Christian Ferguson",
+    "Christian NG" : "Christian Ng",
+    "Christian Ng" : "Christian Ng",
+    "Christine MACKRELL" : "Christine MACKRELL",
+    "Conner BURY" : "Connor Bury",
+    "Conor BURY" : "Connor Bury",
+    "Conor Bury" : "Connor Bury",
+
+    "Coraine SOPRU" : "Corraine Sopru",
+
+    "Craig Staeher" : "Craig STAEHR",
+    "Dan MOORE" : "Dan Cox",
+    "Daniel COX" : "Daniel cox",
+    "Daniel Duffy" : "Dan Duffy",
+    "Daniel GRANT" : "Dan Grant",
+    "Daniel MOORE" : "Dan Cox",
+    "Daniel NOBEL" : "Daniel Nobel",
+    "Daniel Noble" : "Daniel Nobel",
+    "Danika THOMAS" : "Danika Thomas",
+    "Danika Thomas" : "Danika Thomas",
+
+    "Darcy Dowling" : "Darcy Cowling",
+    
+    "Darren Bassham" : "Darren Bassham",
+    "Darren Bassam" : "Darren Bassham",
+    "Darren FERGUSON" : "Darren Ferguson",
+    "Darren Ferguson" : "Darren Ferguson",
+    "Dave Edwards" : "David Edwards",
+    "Dave SINCLAIR" : "Dave Sinclair",
+    "Dave Sinclair" : "Dave Sinclair",
+    "David SAKIOVITS" : "David Sakovits",
+    "David Sakovits" : "David Sakovits",
+    "Dov SPRINKS" : "Dov Spinks",
+    "Drew KENNEDY" : "Drew Kennedy",
+    "Drew Kennedy" : "Drew Kennedy",
+    "Duncan VECHIARELLI" : "Duncan VECCHIARELLI",
+    "Edward NGO" : "Edward Ngo",
+    "Edward Ngo" : "Edward Ngo",
+    "Edward Wallace" : "Edward Wallace",
+    "Emile SCHEMBRI" : "Emile Schembri",
+    "Emile Schembri" : "Emile Schembri",
+    "Erwin LAM" : "Erwin Lam",
+    "Erwin Lamb" : "Erwin Lam",
+    "Ethan TRAN" : "Hang Tran",
+
+    "Finn PATTINSON" : "Finn Pattinson",
+    "Finn Pattinson" : "Finn Pattinson",
+
+    "Frances WILIAMS" : "Frances Williams",
+    "Frances WILLAMS" : "Frances Williams",
+    "Frances WILLIAM" : "Frances Williams",
+    "Francis WILLIAMS" : "Frances Williams",
+    "Gabriele WILKINSON" : "Gabriel Wilkinson",
+    "Gabriele Wilkinson" : "Gabriel Wilkinson",
+
+    "Gavindi POONI" : "Gavinda POONI",
+    "George McConnel" : "George McConnell",
+
+    "Georgie Barrat" : "Georgie Barratt",
+    "Georgie Barratt" : "Georgie Barratt",
+    "Georgina Barratt" : "Georgie Barratt",
+
+    "Georgina RAWSON" : "Georgie Rawson",
+    "Georgie Rawson" : "Georgie Rawson",
+
+    "Gregg Howlett" : "Greg HOWLETT",
+    "Gregory HOWLETT" : "Greg HOWLETT",
+
+    "Guanfang SU" : "Guangang Su Zirnsk",
+    "Gulsara KAPLAN" : "Gulsara Kaplan",
+    "Gulsara Kaplan": "Gulsara Kaplan",
+
+    "H Tran" : "Hang Tran",
+    "Hang Tran" : "Hang Tran",
+
+    "Harry Pan" : "Harry Pan",
+    
+    
+    "Henry HONDRO" : "Henry Hondros",
+    "Henry Hondros" : "Henry Hondros",
+    
+    "Hollie SLATER" : "Joe Slater",
+    "Hudson RAULT" : "Jason RAULT",
+    "Iain DAVIDSON" : "Iain Davidson",
+    "Ian Davidson" : "Iain Davidson",
+    
+    "Isabela DAL MORO FERREIRA" : "Isabela Dal Moro Ferreira",
+    "Isabela Dal Moro Ferreira" : "Isabela Dal Moro Ferreira",
+    "Isabela Ferreira" : "Isabela Dal Moro Ferreira",
+
+    "Isabella HE" : "Isabela Ferreira",
+
+    "Jack LIENERS" : "Jack LIENERT",
+    "Jack Lienert" : "Jack Lienert",
+
+    "Jackie DAWSON" : "Jackie DAWSON",
+    "Jacob CLEMENTS" : "Jacob CLEMENTS",
+
+    "Jahan PENNI-DIMRI" : "Jahan Penny-Dimri",
+    "Jahan Penny-dimri" : "Jahan Penny-Dimri",
+
+    "Jaime Lee TERPTIPS" : "Jamie-Lee TERTIPIS",
+    "Jaime-Lee TERTIPIS" : "Jaime-Lee TERPTIPS",
+    "Jamie-Lee TERTIPIS" : "Jaime-Lee TERPTIPS",
+
+    "James HONDROS" : "Jim Hondros",
+    "Jim HONDROS" : "Jim Hondros",
+    "Jim Hondros" : "Jim Hondros",
+
+    "James McCanna" : "James MCANNA",
+    "James Mcanna" : "James McCanna",
+
+    "KIM Bomi": "Jamie Bomi-kim",
+    "Jamie KIM" : "Jamie Bomi-kim",
+    "Jamon BARNES" : "Jamon Barnes",
+    "Jamon Barnes" : "Jamon Barnes",
+    "Jamon BARNS" : "Jamon Barnes",
+    
+    "Jane Mcenary" : "Jane Menary",
+    
+    "Jinhan Goh" : "Jinlin Goh",
+    "Jinyi Han" : "JING XUAN HAN",
+
+    "Jo WILKINS" : "Joanne Wilkins",
+    "Jo Wilkins" : "Joanne Wilkins",
+    "Joanne Wilkins" : "Joanne Wilkins",
+    "Joanne Wilkonsen" : "Joanne Wilkins",
+    "Joanne" : "Joanne Wilkins",
+
+    "John Stanou" : "John Stamou",
+
+    "Johnathan SNELL" : "Jonathon Snell",
+
+    "Jonas DAWSON" : "Jonas Dawson",
+    "Jonas Dawson" : "Jonas Dawson",
+
+    "Jonathan MACKENZIE" : "Jonathon Mackenzie",
+    "Jonathan Mckenzie" : "Jonathon Mackenzie",
+    "Jonathan Quinn" : "Jonathon Mackenzie",
+    "Jonathon MCKENZIE" : "Jonathon Mackenzie",
+    "Jonathon Mackenzie" : "Jonathon Mackenzie",
+    
+    "Jordan PAPPALADO" : "Jordan Pappalado",
+    "Jordan Papalado" : "Jordan Pappalado",
+    "Jordan Pappalado" : "Jordan Pappalado",
+
+    "Joshua Charvetto" : "Josh CHARVETTO",
+
+    "Joshua GASCAIGNE" : "Josh GASCOIGNE",
+    "Joshua GASCOIGNE" : "Josh GASCOIGNE",
+
+    "Josiah STANLEY" : "H Tran",
+
+    "Judy MCCALLUM" : "Judith Mccallum",
+
+    "Julian Mortmimer" : "Julian Mortimer",
+
+    "Karl VATZVIK" : "Karl Vatzlavik",
+
+    "Kate Kirby" : "Kate Kirby",
+    "Kehong (Ethan) GUO" : "Kehong GUO",
+    "Keith Vingelis-Plant" : "Keith Vingelis-Plant",
+    "Kim Beardsell" : "Kym Beardsell",
+    
+    "Kinyin ANDERSON" : "Kinyin Anderson",
+    "Kinyin Anderson" : "Kinyin Anderson",
+    
+    "Kira ZHDANOVICH" : "Maria Zhdanovich",
+    "Kira Zhdanovich" : "Maria Zhdanovich",
+    
+    "Kristan ZIRNSAK" : "Kristian Zirnsak",
+    "Kristen Zirnsk" : "Kristian Zirnsak",
+    "Kristian ZIRNAK" : "Kristian Zirnsak",
+    "Kristian ZIRNSAK" : "Kristian Zirnsak",
+    "Kristian Zimsak" : "Kristian Zirnsak",
+    "Kristian Zirnsak" : "Kristian Zirnsak",
+
+    "LOENEN Van" : "James VAN LOENEN",
+
+    "Lachaln Oerman" : "Lachlan Oerman",
+    "Lachlan COOPER" : "Lachlan Oerman",
+    "Lachlan OERMANN" : "Lachlan Oerman",
+    "Lachlin OERMAN" : "Lachlan Oerman",
+    "Laclan OERMAN" : "Lachlan Oerman",
+
+
+    "Laurence MENZ" : "Lawrence MENZ",
+    "Ursula Menz": "Ursula Menz",
+    "Uschi Menz": "Ursula Menz",
+    "Uschi MENZ": "Ursula Menz",
+    "Ursula MENZ": "Ursula Menz",
+
+    "Leo BODYCOOMBE" : "Leo Bodycomb",
+
+    "Leon THOMAS" : "Leon Thomas",
+    "Leon Thomas" : "Leon Thomas",
+
+    "Liang-Shyen WEE" : "Shyen WEE",
+    "Lindsay Farkas" : "Lindsay Ferkas",
+
+    "Liysha GOONETILLEKE" : "Liyasha GOONETILLEKE",
+    "Logan FOREST" : "Logan Forrest",
+    "Logan Forest" : "Logan Forrest",
+
+    "Louie RITCHIE" : "Louis Ritchie",
+
+    "Luke DEVRIES" : "Luke DE VRIES",
+    
+    "Marcus RIQUIER" : "Marcus Riquier",
+    "Marcus Riquier" : "Marcus Riquier",
+
+    "Maria ZHDANOVICH" : "Maria Zhadanovich",
+    "Maria Zhadanovich" : "Maria Zhdanovich",
+    "Maria Zhdanovich": "Maria Zhdanovich",
+
+    "Marrie JONGERNEEL" : "Marrie JONGENEEL",
+
+    "Matt Kolrbeley" : "Mattias Korbely",
+
+    "Matteo BARACHEISI" : "Matteo Barchiesi",
+
+    "Matthew Alexander" : "Alexander Artemov",
+    "Matthew GRAY" : "Matthew Gray",
+    "Matthew Gray": "Matthew Gray",
+    "Matthew Geoffrey Gray": "Matthew Gray",
+    "Matthew Hornesby" : "Matthew Hornsby",
+
+    "Melanie MALIG" : "Melanie Malig-Spranz",
+    "Melanie MALIG-SPRANZ" : "Melanie Malig-Spranz",
+    "Melanie Malig-Spranz" : "Melanie Malig-Spranz",
+    "Melanie Malig-spranz": "Melanie Malig-Spranz",
+
+
+    "Michael Dobbelstyn" : "Michael Dobbelsteyn",
+    "Michael Dobblesteyn" : "Michael Dobbelsteyn",
+    "Michael Dobblestyn" : "Michael Dobbelsteyn",
+
+    "Michael Heoller" : "Michael HOELLER",
+    "Mike HOELLER" : "Michael HOELLER",
+    "Mike Hoeller" : "Michael HOELLER",
+
+
+    "Mike SIMS" : "Mike SIMMS",
+    "Mike SIMMS": "Mike SIMMS",
+
+    "Mitchell HUFFA" : "Mitchell HUFFA",
+    "Mitchel HUFFA" : "Mitchell HUFFA",
+
+    "Mitchell LEWIS" : "Mitch LEWIS",
+    "Mitch LEWIS": "Mitch LEWIS",
+    
+    "Mohamed Saifuddin Mohd Ezanie Fikrie" : "Muhammad Saifuddin S Mohd Ezanie Fikrie",
+    "Muhamed Saifuddin S Mohd Ezanie Fikrie" : "Muhammad Saifuddin S Mohd Ezanie Fikrie",
+
+    "Myka VANGELIS-PLANT" : "Myka Vingelis-Plant",
+    "Myka VINGELIS PLANT" : "Myka Vingelis-Plant",
+    "Myka Vangelis-plant" : "Myka Vingelis-Plant",
+    "Myka Vingelis-plant" : "Myka Vingelis-Plant",
+    "Myka Vingelis_plant" : "Myka Vingelis-Plant",
+    "Myka Vinglis-plant" : "Myka Vingelis-Plant",
+
+    "Nadina FERGUSON" : "Nadine Fergusson",
+    "Nadine FERGUSON" : "Nadine Fergusson",
+    "Nadine Fergusson" : "Nadine Fergusson",
+    "Nalin CHANDRAN" : "Nalin Chandran",
+    "Nalin Chandran" : "Nalin Chandran",
+
+    "Chin Ton Naomi Tang" : "Naomi Tang",
+    "Naomi Tang" : "Naomi Tang",
+
+    "Nat SHEARER" : "Nathaniel SHEARER",
+    "Nathaniel SHEARER" : "Nathaniel SHEARER",
+
+    "Natalie BETTS" : "Natalie Betts",
+    "Natalie Betts" : "Natalie Betts",
+    
+    "Nate CAMATA" : "Nate CAMATTA",
+    "Nate CAMMATTA" : "Nate CAMATTA",
+    
+    "Nathaniel COOMBE" : "Nat Coombe",
+    "Nathaniel Coombe" : "Nat Coombe",
+
+    "Nia TUCKER" : "Alex TUCKER",
+    
+    "Nicholas Betts" : "Nick Betts",
+    "Nick BETTS" : "Nick Betts",
+
+    "Nick JORDAN" : "Nik JORDAN",
+    "Nik JORDAN" : "Nik JORDAN",
+    "Nikolas JORDAN": "Nik JORDAN",
+
+    "O Luckhurst-Smith" : "Oliver Luckhurst-Smith",
+    "Ollie LUCKHURST-SMITH" : "Oliver Luckhurst-Smith",
+    "Oliver Luckhurst-Smith" : "Oliver Luckhurst-Smith",
+
+    "Ola Abdelmonen" : "Ola Abdelmonem",
+
+    "Ollie Pring" : "Oliver Pring",
+    "Oliver PRING": "Oliver Pring",
+    "Oliver Pring": "Oliver Pring",
+
+    "Patrick CARMICHAEL" : "Patrick CARMICHAEL",
+    "Patrick Chapman" : "Patrick Chapman",
+    "Patrick DOOLAN" : "Patrick Doolan",
+    "Patrick Doolan" : "Patrick Doolan",
+    "Patrick Eustace" : "Patrick Eustace",
+    "Patrick JONES" : "Patrick JONES",
+    "Patrick Laing" : "Patrick Laing",
+
+    "Pay SHAYNE" : "Shayne PAY",
+
+    "Pete BARRY" : "Peter BARRY",
+    "Peter BROOKES" : "Peter Brookes",
+    "Peter Brookes" : "Peter Brookes",
+    
+    "Peter DE MARIA" : "Peter Demaria",
+    "Peter Demarie" : "Peter Demaria",
+    
+    "Peter MAYER" : "Peter Mayer",
+    "Peter Mayer" : "Peter Mayer",
+
+    "Phil MOSCHAKIS" : "Phillip MOSCHAKIS",
+    "Piers Bastin-flemming": "Piers Bastian-Flemming",
+    "Piers Bastian-fleming" : "Piers Bastian-Flemming",
+    "Piers Bastian-Flemming": "Piers Bastian-Flemming",
+
+    "ROSHAN CHANDRAN" : "Roshan Chandran",
+
+
+    "Rachael AISTROPE" : "Rachel Aistrope",
+    "Rachel AISTROP" : "Rachel Aistrope",
+    "Rachel AITROPE" : "Rachel Aistrope",
+    
+    "Ranger SPINKS" : "Ranger Spinks",
+    "Ranger Spinks" : "Ranger Spinks",
+    
+    "Ray Andriono" : "Raymond Andriono",
+    "Raymond Andriono" : "Raymond Andriono",
+    "Raymond Rafael Andriono" : "Raymond Andriono",
+    
+    "Rebecca Lloyd" : "Rebecca Lloyd",
+    "Rebecca Loasby" : "Rebecca Loasby",
+
+    
+    "Rohan FRANCIS-FOALE" : "Rohan FRANCIS-FOALE",
+    "Rohan Francis_foale" : "Rohan FRANCIS-FOALE",
+    "Rohan Fransic-foale" : "Rohan FRANCIS-FOALE",
+
+    "Roslyn Douglas" : "Ros Douglas",
+    "Ross Douglass" : "Ros Douglas",
+    "Ros Douglas": "Ros Douglas",
+
+    "Russel HARTHUP" : "Russell Hartup",
+    "Russel HARTUP" : "Russell Hartup",
+    "Russel Hartup" : "Russell Hartup",
+    "Russell Hartup": "Russell Hartup",
+
+    "Ryan Schapter" : "Ryan Lo",
+    
+    "Sally MONAHAN" : "Sally Monaghan",
+    "Sally Monaghan" : "Sally Monaghan",
+    "Sally MONAGHAN": "Sally Monaghan",
+    
+    "Sam BLACKMANN" : "Sam Blackman",
+    "Samuel Blackman" : "Sam Blackman",
+    "Sam BLACKMAN" : "Sam Blackman",
+
+    "Sam Wells" : "Sam Wells",
+    "Samuel Wells" : "Sam Wells",
+
+
+    "Sandra MCNAIR" : "Sandy MCNAIR",
+    "Sandy MCNAIR": "Sandy MCNAIR",
+
+    "Scott Haselhoff" : "Scott Hassellhoff",
+    "Scott Haseloff" : "Scott Hassellhoff",
+    
+    
+    "Sebastian KASPERSKI" : "Sebastian Kasperski",
+    "Sebastian Kasperski" : "Sebastian Kasperski",
+
+    "Sebastian WILKIJNSON" : "Sebastian WILKINSON",
+
+    "Seb Deverson" : "Sebastian Deverson",
+    "Sebastien Deverson" : "Sebastian Deverson",
+    "Sebatsian Deverson" : "Sebastian Deverson",
+
+    "Serious WILSON" : "Seri WILSON",
+    "Seri WILSON" : "Seri WILSON",
+
+    "Sixuan (Serena) Yao" : "Sixuan YAO",
+    "Sixuan YAO": "Sixuan YAO",
+
+    "So YUET" : "Yeut SO",
+    "Yeut SO" : "Yeut SO",
+
+    "Sophie TOTH" : "Sophie Toth",
+    "Sophie Toth" : "Sophie Toth",
+    "Sofie Toth": "Sophie Toth",
+
+    "Stephen HOWLETT" : "Steve Howlett",
+    "Steve HOWLETT" : "Steve Howlett",
+    "Steve Howlett" : "Steve Howlett",
+
+
+    "Sugar Stohmeyer" : "Sugar Strohmayer",
+    "Sugar Strohlmeyer" : "Sugar Strohmayer",
+    "Suger Strohmayer" : "Sugar Strohmayer",
+
+    "T C REYNOLDS" : "T C Reynolds",
+    "T C Reynolds" : "T C Reynolds",
+    "Tyler TC Reynolds" : "T C Reynolds",
+
+    "Theo Constantopoulous" : "Theo Constantopolous",
+    "Theo Constantopolous": "Theo Constantopolous",
+
+    "Thomas COGHLAN" : "Thomas Coghlan",
+    "Thomas Colgan" : "Thomas Coghlan",
+    "Thomas Coghlan": "Thomas Coghlan",
+
+    "Thomas Henry" : "Tom Henry",
+    "Tom Henry": "Tom Henry",
+
+    "Tim BENVENENISTE" : "Tim Benvensite",
+    "Tim Benvensite" : "Tim Benvensite",
+    "Tim BENVENISTE": "Tim Benvensite",
+
+    "Tim Hall": "Tim Hall",
+    "Tim HILL" : "Tim Hall",
+    "Timmi HILL" : "Tim Hall",
+    "Timmi HAL" : "Tim Hall",
+    "Timmi HALL" : "Tim Hall",
+    "Timothy Gibson" : "Tim Gibson",
+    "Timothy Hall" : "Tim Hall",
+    "Tsz-Tim HALL" : "Tim Hall",
+
+    "Tobias Adam" : "Tobias Adams",
+    "Toby ADAMS" : "Tobias Adams",
+
+    "Tracey STUART" : "Tracy Stuart",
+    "Tracy Stuart" : "Tracy Stuart",
+
+    "VRIES De" : "Luke DE VRIES",
+
+    "Vatslav ZHDANOVICH" : "Vatslav Zhdanovich",
+    "Vatslav Zdanovich" : "Vatslav Zhdanovich",
+    "Vatslav Zhdanovich" : "Vatslav Zhdanovich",
+
+    "Wenjie Zhong" : "Wenjie Terry Zhong",
+    "Wenjie Terry Zhong" : "Wenjie Terry Zhong",
+
+    "Wil BESANKO" : "Will Besanko",
+    "Will BESANKO" : "Will Besanko",
+    "Will BESENKO" : "Will Besanko",
+    "Will Besanko" : "Will Besanko",
+    "William Besanko" : "Will Besanko",
+
+    "William CAMPBELL" : "Will CAMPBELL",
+    "William Campbell" : "Will CAMPBELL",
+    "Willian CAMPBELL" : "Will CAMPBELL",
+    "Will CAMPBELL": "Will CAMPBELL",
+
+    "Ying QIAN" : "Qian Ying",
+    "Ying Quan" : "Qian Ying",
+    "Qian Ying" : "Qian Ying",
+    
+    "Yixin ZHANG" : "Xiao Zhang",
+    "Yuhao (Felix) (Felix) Xia" : "Yuhao XIA",
+    "Yuhao (Felix) XIA" : "Yuhao XIA",
+    "Yuhao XIA": "Yuhao XIA"
 }

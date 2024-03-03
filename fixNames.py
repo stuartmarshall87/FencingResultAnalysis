@@ -1,5 +1,20 @@
 import json
 
+
+# Matches to investigate
+#     "Marshall Griffin" : "Michael Griffin",
+#     "Beatriz Dal Moro Ferreira" : "Isabela Dal Moro Ferreira",
+#     "Madeline Neal" : "Rin Neal",
+#     "Karl VATZVIK" : "Karl Vatzlavik",
+#     "Rohan Fransic-foale" : "FOALE Francis",
+#     "Beatriz DAL MORO FERREIRA" : "Isabela DAL MORO FERREIRA",
+#     "Isabela Dal Moro Ferreira" : "Isabela Dal Moro Ferreira",
+
+#     "Michael Chen" : "Mitchell Chen",
+#     "Ben Lim" : "Ben Lam",
+#     "VRIES De" : "Luke DE VRIES",
+
+
 with open(".\\bouts.json", "r") as file:
     bouts = json.loads(file.read())
 
