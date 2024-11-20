@@ -47,12 +47,12 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 16,2,15,Michael Peachey,Rowan Beckworth,8,15,20050227OE,20050227,Epee,Open,
 2,1,2,Aaron Liaw,Adeline Lamy,15,5,20050227OF,20050227,Foil,Open,
 2,2,1,Adeline Lamy,Aaron Liaw,5,15,20050227OF,20050227,Foil,Open,
-4,1,4,James MCANNA,Aaron Liaw,15,9,20050227OF,20050227,Foil,Open,
-4,4,1,Aaron Liaw,James MCANNA,9,15,20050227OF,20050227,Foil,Open,
-8,1,8,James MCANNA,Lance Holden,8,15,20050227OF,20050227,Foil,Open,
-8,8,1,Lance Holden,James MCANNA,15,8,20050227OF,20050227,Foil,Open,
-16,1,16,James MCANNA,Tim Benveniste,2,15,20050227OF,20050227,Foil,Open,
-16,16,1,Tim Benveniste,James MCANNA,15,2,20050227OF,20050227,Foil,Open,
+4,1,4,James McCanna,Aaron Liaw,15,9,20050227OF,20050227,Foil,Open,
+4,4,1,Aaron Liaw,James McCanna,9,15,20050227OF,20050227,Foil,Open,
+8,1,8,James McCanna,Lance Holden,8,15,20050227OF,20050227,Foil,Open,
+8,8,1,Lance Holden,James McCanna,15,8,20050227OF,20050227,Foil,Open,
+16,1,16,James McCanna,Tim Benveniste,2,15,20050227OF,20050227,Foil,Open,
+16,16,1,Tim Benveniste,James McCanna,15,2,20050227OF,20050227,Foil,Open,
 16,9,8,Lance Holden,Micheal Hoeller,6,15,20050227OF,20050227,Foil,Open,
 16,8,9,Micheal Hoeller,Lance Holden,15,6,20050227OF,20050227,Foil,Open,
 8,5,4,Aaron Liaw,Chris Kalnins,10,15,20050227OF,20050227,Foil,Open,
@@ -647,8 +647,8 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 4,4,1,Damien Warman,Michael Hoeller,15,10,20060813OMF,20060813,Foil,Open,Mens
 8,1,8,Michael Hoeller,Tim Benveniste,4,15,20060813OMF,20060813,Foil,Open,Mens
 8,8,1,Tim Benveniste,Michael Hoeller,15,4,20060813OMF,20060813,Foil,Open,Mens
-16,9,8,Steve McClure,Tim Benvensite,15,11,20060813OMF,20060813,Foil,Open,Mens
-16,8,9,Tim Benvensite,Steve McClure,11,15,20060813OMF,20060813,Foil,Open,Mens
+16,9,8,Steve McClure,Tim Benveniste,15,11,20060813OMF,20060813,Foil,Open,Mens
+16,8,9,Tim Benveniste,Steve McClure,11,15,20060813OMF,20060813,Foil,Open,Mens
 8,5,4,George McConnell,Damien Warman,15,14,20060813OMF,20060813,Foil,Open,Mens
 8,4,5,Damien Warman,George McConnell,14,15,20060813OMF,20060813,Foil,Open,Mens
 4,3,2,Beecher Carter,Lance Holden,15,11,20060813OMF,20060813,Foil,Open,Mens
@@ -1743,10 +1743,10 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 4,4,1,Reno Kennedy,Hamish Mclachlan,15,6,20071021U13F,20071021,Foil,U13,
 4,3,2,Drew Kennedy,Tom Litchfield,15,1,20071021U13F,20071021,Foil,U13,
 4,2,3,Tom Litchfield,Drew Kennedy,1,15,20071021U13F,20071021,Foil,U13,
-2,1,2,James MCANNA,Shayne Pay,2,10,20071021VF,20071021,Foil,Veterans,
-2,2,1,Shayne Pay,James MCANNA,10,2,20071021VF,20071021,Foil,Veterans,
-4,1,4,James MCANNA,Jane Menary,2,10,20071021VF,20071021,Foil,Veterans,
-4,4,1,Jane Menary,James MCANNA,10,2,20071021VF,20071021,Foil,Veterans,
+2,1,2,James McCanna,Shayne Pay,2,10,20071021VF,20071021,Foil,Veterans,
+2,2,1,Shayne Pay,James McCanna,10,2,20071021VF,20071021,Foil,Veterans,
+4,1,4,James McCanna,Jane Menary,2,10,20071021VF,20071021,Foil,Veterans,
+4,4,1,Jane Menary,James McCanna,10,2,20071021VF,20071021,Foil,Veterans,
 8,5,4,Darren Bassham,Jane Menary,10,4,20071021VF,20071021,Foil,Veterans,
 8,4,5,Jane Menary,Darren Bassham,4,10,20071021VF,20071021,Foil,Veterans,
 4,3,2,Shayne Pay,Nick Pittman,5,10,20071021VF,20071021,Foil,Veterans,
@@ -2675,8 +2675,8 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 16,8,9,Damien WARMAN,Russell HARTUP,15,11,20081123OMF,20081123,Foil,Open,Mens
 8,5,4,Leon Thomas,Jahan PENNY-DIMRI,15,11,20081123OMF,20081123,Foil,Open,Mens
 8,4,5,Jahan PENNY-DIMRI,Leon Thomas,11,15,20081123OMF,20081123,Foil,Open,Mens
-16,5,12,Leon Thomas,Tim Benvensite,12,15,20081123OMF,20081123,Foil,Open,Mens
-16,12,5,Tim Benvensite,Leon Thomas,15,12,20081123OMF,20081123,Foil,Open,Mens
+16,5,12,Leon Thomas,Tim Benveniste,12,15,20081123OMF,20081123,Foil,Open,Mens
+16,12,5,Tim Benveniste,Leon Thomas,15,12,20081123OMF,20081123,Foil,Open,Mens
 16,13,4,Steve MCCLURE,Jahan PENNY-DIMRI,15,1,20081123OMF,20081123,Foil,Open,Mens
 16,4,13,Jahan PENNY-DIMRI,Steve MCCLURE,1,15,20081123OMF,20081123,Foil,Open,Mens
 4,3,2,Michael DZODZOS,Claude MOCELLIN,15,11,20081123OMF,20081123,Foil,Open,Mens
@@ -2747,8 +2747,8 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 4,4,1,Beecher CARTER,Michael DZODZOS,6,15,20090329OMF,20090329,Foil,Open,Mens
 8,1,8,Michael DZODZOS,Darren BASSHAM,2,15,20090329OMF,20090329,Foil,Open,Mens
 8,8,1,Darren BASSHAM,Michael DZODZOS,15,2,20090329OMF,20090329,Foil,Open,Mens
-8,5,4,Tim Benvensite,Beecher CARTER,15,1,20090329OMF,20090329,Foil,Open,Mens
-8,4,5,Beecher CARTER,Tim Benvensite,1,15,20090329OMF,20090329,Foil,Open,Mens
+8,5,4,Tim Benveniste,Beecher CARTER,15,1,20090329OMF,20090329,Foil,Open,Mens
+8,4,5,Beecher CARTER,Tim Benveniste,1,15,20090329OMF,20090329,Foil,Open,Mens
 4,3,2,Jonathon Mackenzie,Jahan PENNY-DIMRI,15,13,20090329OMF,20090329,Foil,Open,Mens
 4,2,3,Jahan PENNY-DIMRI,Jonathon Mackenzie,13,15,20090329OMF,20090329,Foil,Open,Mens
 8,3,6,Jonathon Mackenzie,Jackson MICHAEL,8,15,20090329OMF,20090329,Foil,Open,Mens
@@ -2885,8 +2885,8 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 16,6,11,Michael HOELLER,Darren BASSHAM,0,15,20090517OMF,20090517,Foil,Open,Mens
 8,7,2,Leon Thomas,Chris Carter,15,13,20090517OMF,20090517,Foil,Open,Mens
 8,2,7,Chris Carter,Leon Thomas,13,15,20090517OMF,20090517,Foil,Open,Mens
-16,7,10,Leon Thomas,Tim Benvensite,9,15,20090517OMF,20090517,Foil,Open,Mens
-16,10,7,Tim Benvensite,Leon Thomas,15,9,20090517OMF,20090517,Foil,Open,Mens
+16,7,10,Leon Thomas,Tim Benveniste,9,15,20090517OMF,20090517,Foil,Open,Mens
+16,10,7,Tim Benveniste,Leon Thomas,15,9,20090517OMF,20090517,Foil,Open,Mens
 2,1,2,Russell HARTUP,Shayne PAY,6,15,20090517OMS,20090517,Sabre,Open,Mens
 2,2,1,Shayne PAY,Russell HARTUP,15,6,20090517OMS,20090517,Sabre,Open,Mens
 4,1,4,Russell HARTUP,Bruce HEMSLEY,3,15,20090517OMS,20090517,Sabre,Open,Mens
@@ -2945,8 +2945,8 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 4,2,3,Beecher CARTER,Adrian MURPHY,10,15,20090530OMF,20090530,Foil,Open,Mens
 8,3,6,Lance HOLDEN,Adrian MURPHY,15,4,20090530OMF,20090530,Foil,Open,Mens
 8,6,3,Adrian MURPHY,Lance HOLDEN,4,15,20090530OMF,20090530,Foil,Open,Mens
-16,11,6,Tim Benvensite,Adrian MURPHY,15,2,20090530OMF,20090530,Foil,Open,Mens
-16,6,11,Adrian MURPHY,Tim Benvensite,2,15,20090530OMF,20090530,Foil,Open,Mens
+16,11,6,Tim Benveniste,Adrian MURPHY,15,2,20090530OMF,20090530,Foil,Open,Mens
+16,6,11,Adrian MURPHY,Tim Benveniste,2,15,20090530OMF,20090530,Foil,Open,Mens
 8,7,2,Michael HOELLER,Beecher CARTER,15,10,20090530OMF,20090530,Foil,Open,Mens
 8,2,7,Beecher CARTER,Michael HOELLER,10,15,20090530OMF,20090530,Foil,Open,Mens
 16,7,10,Michael HOELLER,Jackson MICHAEL,7,10,20090530OMF,20090530,Foil,Open,Mens
@@ -3063,8 +3063,8 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 16,8,9,Alex DAVEY,Henry HONDROS,12,15,20090627U15MF,20090627,Foil,U15,Mens
 8,5,4,Tim WARBURTON-ROBERTS,Logan FORREST,15,0,20090627U15MF,20090627,Foil,U15,Mens
 8,4,5,Logan FORREST,Tim WARBURTON-ROBERTS,0,15,20090627U15MF,20090627,Foil,U15,Mens
-16,5,12,Tim WARBURTON-ROBERTS,Hang Tran,7,15,20090627U15MF,20090627,Foil,U15,Mens
-16,12,5,Hang Tran,Tim WARBURTON-ROBERTS,15,7,20090627U15MF,20090627,Foil,U15,Mens
+16,5,12,Tim WARBURTON-ROBERTS,H Tran,7,15,20090627U15MF,20090627,Foil,U15,Mens
+16,12,5,H Tran,Tim WARBURTON-ROBERTS,15,7,20090627U15MF,20090627,Foil,U15,Mens
 16,13,4,James BIDDLE,Logan FORREST,15,3,20090627U15MF,20090627,Foil,U15,Mens
 16,4,13,Logan FORREST,James BIDDLE,3,15,20090627U15MF,20090627,Foil,U15,Mens
 4,3,2,Morgan CARRINGTON,Leighlan DOE,15,4,20090627U15MF,20090627,Foil,U15,Mens
@@ -3147,8 +3147,8 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 2,2,1,Nick Betts,Jahan PENNY-DIMRI,14,15,20090726OMF,20090726,Foil,Open,Mens
 4,1,4,Jahan PENNY-DIMRI,Russell HARTUP,9,15,20090726OMF,20090726,Foil,Open,Mens
 4,4,1,Russell HARTUP,Jahan PENNY-DIMRI,15,9,20090726OMF,20090726,Foil,Open,Mens
-8,1,8,Jahan PENNY-DIMRI,Tim Benvensite,7,15,20090726OMF,20090726,Foil,Open,Mens
-8,8,1,Tim Benvensite,Jahan PENNY-DIMRI,15,7,20090726OMF,20090726,Foil,Open,Mens
+8,1,8,Jahan PENNY-DIMRI,Tim Benveniste,7,15,20090726OMF,20090726,Foil,Open,Mens
+8,8,1,Tim Benveniste,Jahan PENNY-DIMRI,15,7,20090726OMF,20090726,Foil,Open,Mens
 8,5,4,Lance HOLDEN,Russell HARTUP,15,14,20090726OMF,20090726,Foil,Open,Mens
 8,4,5,Russell HARTUP,Lance HOLDEN,14,15,20090726OMF,20090726,Foil,Open,Mens
 4,3,2,Nick Betts,Jackson MICHAEL,7,15,20090726OMF,20090726,Foil,Open,Mens
@@ -3203,10 +3203,10 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 16,10,7,Charlie WESTWELL,Alex DAVEY,10,1,20090809U13F,20090809,Foil,U13,
 2,1,2,Julian OPIE,Dov SPINKS,8,15,20090815IF,20090815,Foil,Intermediate,
 2,2,1,Dov SPINKS,Julian OPIE,15,8,20090815IF,20090815,Foil,Intermediate,
-4,1,4,Julian OPIE,Tim Benvensite,8,15,20090815IF,20090815,Foil,Intermediate,
-4,4,1,Tim Benvensite,Julian OPIE,15,8,20090815IF,20090815,Foil,Intermediate,
-8,5,4,David GAMBELL,Tim Benvensite,15,14,20090815IF,20090815,Foil,Intermediate,
-8,4,5,Tim Benvensite,David GAMBELL,14,15,20090815IF,20090815,Foil,Intermediate,
+4,1,4,Julian OPIE,Tim Benveniste,8,15,20090815IF,20090815,Foil,Intermediate,
+4,4,1,Tim Benveniste,Julian OPIE,15,8,20090815IF,20090815,Foil,Intermediate,
+8,5,4,David GAMBELL,Tim Benveniste,15,14,20090815IF,20090815,Foil,Intermediate,
+8,4,5,Tim Benveniste,David GAMBELL,14,15,20090815IF,20090815,Foil,Intermediate,
 4,3,2,John LOVELOCK,Dov SPINKS,15,14,20090815IF,20090815,Foil,Intermediate,
 4,2,3,Dov SPINKS,John LOVELOCK,14,15,20090815IF,20090815,Foil,Intermediate,
 2,1,2,Rowan BECKWORTH,Jahan PENNY-DIMRI,6,15,20090816OME,20090816,Epee,Open,Mens
@@ -3229,8 +3229,8 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 8,4,5,Michael DZODZOS,Chris Carter,9,15,20090816OMF,20090816,Foil,Open,Mens
 4,3,2,Jackson MICHAEL,Michael HOELLER,11,6,20090816OMF,20090816,Foil,Open,Mens
 4,2,3,Michael HOELLER,Jackson MICHAEL,6,11,20090816OMF,20090816,Foil,Open,Mens
-8,3,6,Tim Benvensite,Jackson MICHAEL,15,4,20090816OMF,20090816,Foil,Open,Mens
-8,6,3,Jackson MICHAEL,Tim Benvensite,4,15,20090816OMF,20090816,Foil,Open,Mens
+8,3,6,Tim Benveniste,Jackson MICHAEL,15,4,20090816OMF,20090816,Foil,Open,Mens
+8,6,3,Jackson MICHAEL,Tim Benveniste,4,15,20090816OMF,20090816,Foil,Open,Mens
 8,7,2,Lance HOLDEN,Michael HOELLER,15,8,20090816OMF,20090816,Foil,Open,Mens
 8,2,7,Michael HOELLER,Lance HOLDEN,8,15,20090816OMF,20090816,Foil,Open,Mens
 2,1,2,Jane MENARY,Leanne INESON,15,11,20090816OWF,20090816,Foil,Open,Womens
@@ -3257,8 +3257,8 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 4,2,3,Michael DZODZOS,Chris Carter,15,7,20090912U20MF,20090912,Foil,U20,Mens
 2,1,2,Russell HARTUP,Shayne PAY,11,15,20090913OMS,20090913,Sabre,Open,Mens
 2,2,1,Shayne PAY,Russell HARTUP,15,11,20090913OMS,20090913,Sabre,Open,Mens
-4,1,4,Russell HARTUP,Tim Benvensite,7,15,20090913OMS,20090913,Sabre,Open,Mens
-4,4,1,Tim Benvensite,Russell HARTUP,15,7,20090913OMS,20090913,Sabre,Open,Mens
+4,1,4,Russell HARTUP,Tim Benveniste,7,15,20090913OMS,20090913,Sabre,Open,Mens
+4,4,1,Tim Benveniste,Russell HARTUP,15,7,20090913OMS,20090913,Sabre,Open,Mens
 4,3,2,Nick PITTMAN,Shayne PAY,15,6,20090913OMS,20090913,Sabre,Open,Mens
 4,2,3,Shayne PAY,Nick PITTMAN,6,15,20090913OMS,20090913,Sabre,Open,Mens
 2,1,2,Lachlan OERMAN,Tobias ADAMS,7,10,20090919U11F,20090919,Foil,U11,
@@ -3361,8 +3361,8 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 4,4,1,Jackson MICHAEL,Claude MOCELLIN,15,10,20091011OMF,20091011,Foil,Open,Mens
 8,1,8,Michael HOELLER,Claude MOCELLIN,15,12,20091011OMF,20091011,Foil,Open,Mens
 8,8,1,Claude MOCELLIN,Michael HOELLER,12,15,20091011OMF,20091011,Foil,Open,Mens
-16,9,8,Tim Benvensite,Claude MOCELLIN,15,8,20091011OMF,20091011,Foil,Open,Mens
-16,8,9,Claude MOCELLIN,Tim Benvensite,8,15,20091011OMF,20091011,Foil,Open,Mens
+16,9,8,Tim Benveniste,Claude MOCELLIN,15,8,20091011OMF,20091011,Foil,Open,Mens
+16,8,9,Claude MOCELLIN,Tim Benveniste,8,15,20091011OMF,20091011,Foil,Open,Mens
 8,5,4,Michael DZODZOS,Jackson MICHAEL,15,12,20091011OMF,20091011,Foil,Open,Mens
 8,4,5,Jackson MICHAEL,Michael DZODZOS,12,15,20091011OMF,20091011,Foil,Open,Mens
 4,3,2,Adrian MURPHY,Jahan PENNY-DIMRI,15,7,20091011OMF,20091011,Foil,Open,Mens
@@ -3385,8 +3385,8 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 4,2,3,Russell HARTUP,Michael HOELLER,15,13,20091011OMS,20091011,Sabre,Open,Mens
 8,3,6,Michael HOELLER,Jonathon Mackenzie,5,15,20091011OMS,20091011,Sabre,Open,Mens
 8,6,3,Jonathon Mackenzie,Michael HOELLER,15,5,20091011OMS,20091011,Sabre,Open,Mens
-8,7,2,Tim Benvensite,Russell HARTUP,15,8,20091011OMS,20091011,Sabre,Open,Mens
-8,2,7,Russell HARTUP,Tim Benvensite,8,15,20091011OMS,20091011,Sabre,Open,Mens
+8,7,2,Tim Benveniste,Russell HARTUP,15,8,20091011OMS,20091011,Sabre,Open,Mens
+8,2,7,Russell HARTUP,Tim Benveniste,8,15,20091011OMS,20091011,Sabre,Open,Mens
 2,1,2,Seri Wilson,Ursula Menz,8,15,20091011OWF,20091011,Foil,Open,Womens
 2,2,1,Ursula Menz,Seri Wilson,15,8,20091011OWF,20091011,Foil,Open,Womens
 4,1,4,Seri Wilson,Natalie Betts,7,15,20091011OWF,20091011,Foil,Open,Womens
@@ -3855,8 +3855,8 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 16,6,11,Nick Betts,Dov SPINKS,10,15,20101128OMF,20101128,Foil,Open,Mens
 8,7,2,Jonathon Mackenzie,Jahan PENNY-DIMRI,15,4,20101128OMF,20101128,Foil,Open,Mens
 8,2,7,Jahan PENNY-DIMRI,Jonathon Mackenzie,4,15,20101128OMF,20101128,Foil,Open,Mens
-16,7,10,Tim Benvensite,Jonathon Mackenzie,15,11,20101128OMF,20101128,Foil,Open,Mens
-16,10,7,Jonathon Mackenzie,Tim Benvensite,11,15,20101128OMF,20101128,Foil,Open,Mens
+16,7,10,Tim Benveniste,Jonathon Mackenzie,15,11,20101128OMF,20101128,Foil,Open,Mens
+16,10,7,Jonathon Mackenzie,Tim Benveniste,11,15,20101128OMF,20101128,Foil,Open,Mens
 2,1,2,Russell HARTUP,Nick Betts,13,15,20101128OMS,20101128,Sabre,Open,Mens
 2,2,1,Nick Betts,Russell HARTUP,15,13,20101128OMS,20101128,Sabre,Open,Mens
 4,1,4,Russell HARTUP,Jonathon Mackenzie,1,15,20101128OMS,20101128,Sabre,Open,Mens
@@ -4403,8 +4403,8 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 4,4,1,Michael HOELLER,Lachlan OERMAN,8,15,20111127OMF,20111127,Foil,Open,Mens
 8,1,8,Lachlan OERMAN,Johnatan MCKENZIE,7,15,20111127OMF,20111127,Foil,Open,Mens
 8,8,1,Johnatan MCKENZIE,Lachlan OERMAN,15,7,20111127OMF,20111127,Foil,Open,Mens
-16,9,8,Johnatan MCKENZIE,Tim Benvensite,5,15,20111127OMF,20111127,Foil,Open,Mens
-16,8,9,Tim Benvensite,Johnatan MCKENZIE,15,5,20111127OMF,20111127,Foil,Open,Mens
+16,9,8,Johnatan MCKENZIE,Tim Benveniste,5,15,20111127OMF,20111127,Foil,Open,Mens
+16,8,9,Tim Benveniste,Johnatan MCKENZIE,15,5,20111127OMF,20111127,Foil,Open,Mens
 4,3,2,Michael DZODZOS,Adrian MURPHY,15,11,20111127OMF,20111127,Foil,Open,Mens
 4,2,3,Adrian MURPHY,Michael DZODZOS,11,15,20111127OMF,20111127,Foil,Open,Mens
 8,3,6,Michael DZODZOS,Henri HONDROS,2,15,20111127OMF,20111127,Foil,Open,Mens
@@ -4569,10 +4569,10 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 2,2,1,Ayla MCDONALD,Rachel GOUD,11,15,20120428NWF,20120428,Foil,Novice,Womens
 4,1,4,Rachel GOUD,Laura DAVIS,8,15,20120428NWF,20120428,Foil,Novice,Womens
 4,4,1,Laura DAVIS,Rachel GOUD,15,8,20120428NWF,20120428,Foil,Novice,Womens
-8,1,8,Rachel GOUD,Jaime-Lee TERPTIPS,13,15,20120428NWF,20120428,Foil,Novice,Womens
-8,8,1,Jaime-Lee TERPTIPS,Rachel GOUD,15,13,20120428NWF,20120428,Foil,Novice,Womens
-16,9,8,Luciana DARANGELI,Jaime-Lee TERPTIPS,14,13,20120428NWF,20120428,Foil,Novice,Womens
-16,8,9,Jaime-Lee TERPTIPS,Luciana DARANGELI,13,14,20120428NWF,20120428,Foil,Novice,Womens
+8,1,8,Rachel GOUD,Jaime Lee TERPTIPS,13,15,20120428NWF,20120428,Foil,Novice,Womens
+8,8,1,Jaime Lee TERPTIPS,Rachel GOUD,15,13,20120428NWF,20120428,Foil,Novice,Womens
+16,9,8,Luciana DARANGELI,Jaime Lee TERPTIPS,14,13,20120428NWF,20120428,Foil,Novice,Womens
+16,8,9,Jaime Lee TERPTIPS,Luciana DARANGELI,13,14,20120428NWF,20120428,Foil,Novice,Womens
 8,5,4,Laura DAVIS,Esther BURNETT,10,15,20120428NWF,20120428,Foil,Novice,Womens
 8,4,5,Esther BURNETT,Laura DAVIS,15,10,20120428NWF,20120428,Foil,Novice,Womens
 16,5,12,Laura DAVIS,Vanessa GLENNY,7,15,20120428NWF,20120428,Foil,Novice,Womens
@@ -4909,8 +4909,8 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 8,4,5,Hoeller MICHAEL,Oerman LACHLAN,9,15,20120805OMF,20120805,Foil,Open,Mens
 16,5,12,Oerman LACHLAN,Tobias ADAMS,8,15,20120805OMF,20120805,Foil,Open,Mens
 16,12,5,Tobias ADAMS,Oerman LACHLAN,15,8,20120805OMF,20120805,Foil,Open,Mens
-16,13,4,Tim Benvensite,Hoeller MICHAEL,15,6,20120805OMF,20120805,Foil,Open,Mens
-16,4,13,Hoeller MICHAEL,Tim Benvensite,6,15,20120805OMF,20120805,Foil,Open,Mens
+16,13,4,Tim Benveniste,Hoeller MICHAEL,15,6,20120805OMF,20120805,Foil,Open,Mens
+16,4,13,Hoeller MICHAEL,Tim Benveniste,6,15,20120805OMF,20120805,Foil,Open,Mens
 4,3,2,Barry PETER,Barchiesi MATTEO,15,7,20120805OMF,20120805,Foil,Open,Mens
 4,2,3,Barchiesi MATTEO,Barry PETER,7,15,20120805OMF,20120805,Foil,Open,Mens
 8,3,6,Michael Dzodzos,Barry PETER,15,11,20120805OMF,20120805,Foil,Open,Mens
@@ -8061,8 +8061,8 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 4,2,3,Erwin Lam,Ben Alderson,15,10,20161106IME,20161106,Epee,Intermediate,Mens
 8,3,6,Ben Alderson,Armando Bonazinga,8,15,20161106IME,20161106,Epee,Intermediate,Mens
 8,6,3,Armando Bonazinga,Ben Alderson,15,8,20161106IME,20161106,Epee,Intermediate,Mens
-8,7,2,Erwin Lam,Aidan Carling,6,15,20161106IME,20161106,Epee,Intermediate,Mens
-8,2,7,Aidan Carling,Erwin Lam,15,6,20161106IME,20161106,Epee,Intermediate,Mens
+8,7,2,Erwin Lam,Aiden Carling,6,15,20161106IME,20161106,Epee,Intermediate,Mens
+8,2,7,Aiden Carling,Erwin Lam,15,6,20161106IME,20161106,Epee,Intermediate,Mens
 2,1,2,Erwin Lam,Nalin Chandran,11,15,20161106IMF,20161106,Foil,Intermediate,Mens
 2,2,1,Nalin Chandran,Erwin Lam,15,11,20161106IMF,20161106,Foil,Intermediate,Mens
 4,1,4,Erwin Lam,David Belet,13,15,20161106IMF,20161106,Foil,Intermediate,Mens
@@ -8751,8 +8751,8 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 4,2,3,Ben Alderson,Nalin Chandran,8,15,20170917OMF,20170917,Foil,Open,Mens
 8,3,6,Simon Bowering,Nalin Chandran,15,14,20170917OMF,20170917,Foil,Open,Mens
 8,6,3,Nalin Chandran,Simon Bowering,14,15,20170917OMF,20170917,Foil,Open,Mens
-8,7,2,Ceska Dullona,Ben Alderson,15,0,20170917OMF,20170917,Foil,Open,Mens
-8,2,7,Ben Alderson,Ceska Dullona,0,15,20170917OMF,20170917,Foil,Open,Mens
+8,7,2,Cheska Dullona,Ben Alderson,15,0,20170917OMF,20170917,Foil,Open,Mens
+8,2,7,Ben Alderson,Cheska Dullona,0,15,20170917OMF,20170917,Foil,Open,Mens
 2,1,2,Angus Thomas,Erwin Lam,10,15,20170917OMS,20170917,Sabre,Open,Mens
 2,2,1,Erwin Lam,Angus Thomas,15,10,20170917OMS,20170917,Sabre,Open,Mens
 4,1,4,Angus Thomas,Louis Kasperski,8,15,20170917OMS,20170917,Sabre,Open,Mens
@@ -8857,8 +8857,8 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 8,4,5,Nalin Chandran,Roshan CHANDRAN,6,15,20171022U1720F,20171022,Foil,U17/U20,
 4,3,2,Ben ALDERSON,Julian MORTIMER,14,15,20171022U1720F,20171022,Foil,U17/U20,
 4,2,3,Julian MORTIMER,Ben ALDERSON,15,14,20171022U1720F,20171022,Foil,U17/U20,
-8,3,6,Ben ALDERSON,Ceska Dullona,0,15,20171022U1720F,20171022,Foil,U17/U20,
-8,6,3,Ceska Dullona,Ben ALDERSON,15,0,20171022U1720F,20171022,Foil,U17/U20,
+8,3,6,Ben ALDERSON,Ceska Dulona,0,15,20171022U1720F,20171022,Foil,U17/U20,
+8,6,3,Ceska Dulona,Ben ALDERSON,15,0,20171022U1720F,20171022,Foil,U17/U20,
 8,7,2,Darcy COWLING,Julian MORTIMER,15,6,20171022U1720F,20171022,Foil,U17/U20,
 8,2,7,Julian MORTIMER,Darcy COWLING,6,15,20171022U1720F,20171022,Foil,U17/U20,
 2,1,2,Erwin Lam,Roshan CHANDRAN,15,14,20171105IME,20171105,Epee,Intermediate,Mens
@@ -8883,8 +8883,8 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 4,2,3,Nalin Chandran,Roshan CHANDRAN,15,13,20171105IMF,20171105,Foil,Intermediate,Mens
 8,3,6,Roshan CHANDRAN,Darcy COWLING,7,15,20171105IMF,20171105,Foil,Intermediate,Mens
 8,6,3,Darcy COWLING,Roshan CHANDRAN,15,7,20171105IMF,20171105,Foil,Intermediate,Mens
-8,7,2,Ceska Dullona,Nalin Chandran,15,3,20171105IMF,20171105,Foil,Intermediate,Mens
-8,2,7,Nalin Chandran,Ceska Dullona,3,15,20171105IMF,20171105,Foil,Intermediate,Mens
+8,7,2,Ceska Dulona,Nalin Chandran,15,3,20171105IMF,20171105,Foil,Intermediate,Mens
+8,2,7,Nalin Chandran,Ceska Dulona,3,15,20171105IMF,20171105,Foil,Intermediate,Mens
 2,1,2,Ashleigh KURBATFINSKI,Sarah LUCY,4,15,20171105IWE,20171105,Epee,Intermediate,Womens
 2,2,1,Sarah LUCY,Ashleigh KURBATFINSKI,15,4,20171105IWE,20171105,Epee,Intermediate,Womens
 4,1,4,Ashleigh KURBATFINSKI,Jackie DAWSON,12,15,20171105IWE,20171105,Epee,Intermediate,Womens
@@ -12735,10 +12735,10 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 4,3,2,Katie Connor,Alison Wotherspoon,10,9,20221113VWE,20221113,Epee,Veterans,Womens
 2,1,1,Roshan CHANDRAN,Alex BURGUN,15,13,20230226OE,20230226,Epee,Open,
 2,1,1,Alex BURGUN,Roshan CHANDRAN,13,15,20230226OE,20230226,Epee,Open,
-4,1,1,Tai Yuen LAM,Roshan CHANDRAN,15,8,20230226OE,20230226,Epee,Open,
-4,1,1,Roshan CHANDRAN,Tai Yuen LAM,8,15,20230226OE,20230226,Epee,Open,
-8,1,8,Tai Yuen LAM,Dov SPINKS,9,15,20230226OE,20230226,Epee,Open,
-8,8,1,Dov SPINKS,Tai Yuen LAM,15,9,20230226OE,20230226,Epee,Open,
+4,1,1,Erwin Lam,Roshan CHANDRAN,15,8,20230226OE,20230226,Epee,Open,
+4,1,1,Roshan CHANDRAN,Erwin Lam,8,15,20230226OE,20230226,Epee,Open,
+8,1,8,Erwin Lam,Dov SPINKS,9,15,20230226OE,20230226,Epee,Open,
+8,8,1,Dov SPINKS,Erwin Lam,15,9,20230226OE,20230226,Epee,Open,
 16,8,9,Dov SPINKS,Ursula Menz,12,15,20230226OE,20230226,Epee,Open,
 16,9,8,Ursula Menz,Dov SPINKS,15,12,20230226OE,20230226,Epee,Open,
 8,4,5,Roshan CHANDRAN,Stuart MARSHALL,7,15,20230226OE,20230226,Epee,Open,
@@ -12947,10 +12947,10 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 8,5,4,Darren Ferguson,Connor BURY,15,10,20230521OE,20230521,Epee,Open,
 16,5,12,Darren Ferguson,Corraine Sopru,5,15,20230521OE,20230521,Epee,Open,
 16,12,5,Corraine Sopru,Darren Ferguson,15,5,20230521OE,20230521,Epee,Open,
-4,2,3,Alex BURGUN,Tai Yuen LAM,6,15,20230521OE,20230521,Epee,Open,
-4,3,2,Tai Yuen LAM,Alex BURGUN,15,6,20230521OE,20230521,Epee,Open,
-8,3,6,Tai Yuen LAM,Jerry YU,14,15,20230521OE,20230521,Epee,Open,
-8,6,3,Jerry YU,Tai Yuen LAM,15,14,20230521OE,20230521,Epee,Open,
+4,2,3,Alex BURGUN,Erwin Lam,6,15,20230521OE,20230521,Epee,Open,
+4,3,2,Erwin Lam,Alex BURGUN,15,6,20230521OE,20230521,Epee,Open,
+8,3,6,Erwin Lam,Jerry YU,14,15,20230521OE,20230521,Epee,Open,
+8,6,3,Jerry YU,Erwin Lam,15,14,20230521OE,20230521,Epee,Open,
 16,6,11,Jerry YU,Hugh WHEELER,12,15,20230521OE,20230521,Epee,Open,
 16,11,6,Hugh WHEELER,Jerry YU,15,12,20230521OE,20230521,Epee,Open,
 8,2,7,Alex BURGUN,Ranger Spinks,2,15,20230521OE,20230521,Epee,Open,
@@ -12967,8 +12967,8 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 8,4,4,Michael DZODZOS,Hugh WHEELER,1,15,20230521OMF,20230521,Foil,Open,Mens
 4,2,3,Zhaoxuan XIAO,Pouyan OSHAGHI,7,15,20230521OMF,20230521,Foil,Open,Mens
 4,3,2,Pouyan OSHAGHI,Zhaoxuan XIAO,15,7,20230521OMF,20230521,Foil,Open,Mens
-8,3,3,Tai Yuen LAM,Pouyan OSHAGHI,15,13,20230521OMF,20230521,Foil,Open,Mens
-8,3,3,Pouyan OSHAGHI,Tai Yuen LAM,13,15,20230521OMF,20230521,Foil,Open,Mens
+8,3,3,Erwin Lam,Pouyan OSHAGHI,15,13,20230521OMF,20230521,Foil,Open,Mens
+8,3,3,Pouyan OSHAGHI,Erwin Lam,13,15,20230521OMF,20230521,Foil,Open,Mens
 8,2,7,Zhaoxuan XIAO,Jay CHEUNG,8,15,20230521OMF,20230521,Foil,Open,Mens
 8,7,2,Jay CHEUNG,Zhaoxuan XIAO,15,8,20230521OMF,20230521,Foil,Open,Mens
 2,1,2,Pouyan OSHAGHI,Ari KING,7,15,20230521OS,20230521,Sabre,Open,
@@ -13121,10 +13121,10 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 8,8,1,Peter Brookes,Roshan CHANDRAN,15,4,20230813OME,20230813,Epee,Open,Mens
 8,4,5,Jerry YU,Darren Ferguson,13,14,20230813OME,20230813,Epee,Open,Mens
 8,5,4,Darren Ferguson,Jerry YU,14,13,20230813OME,20230813,Epee,Open,Mens
-4,2,3,Alex BURGUN,Tai Yuen LAM,10,15,20230813OME,20230813,Epee,Open,Mens
-4,3,2,Tai Yuen LAM,Alex BURGUN,15,10,20230813OME,20230813,Epee,Open,Mens
-8,3,6,Tai Yuen LAM,Stuart MARSHALL,12,15,20230813OME,20230813,Epee,Open,Mens
-8,6,3,Stuart MARSHALL,Tai Yuen LAM,15,12,20230813OME,20230813,Epee,Open,Mens
+4,2,3,Alex BURGUN,Erwin Lam,10,15,20230813OME,20230813,Epee,Open,Mens
+4,3,2,Erwin Lam,Alex BURGUN,15,10,20230813OME,20230813,Epee,Open,Mens
+8,3,6,Erwin Lam,Stuart MARSHALL,12,15,20230813OME,20230813,Epee,Open,Mens
+8,6,3,Stuart MARSHALL,Erwin Lam,15,12,20230813OME,20230813,Epee,Open,Mens
 8,2,7,Alex BURGUN,Craig STAEHR,5,15,20230813OME,20230813,Epee,Open,Mens
 8,7,2,Craig STAEHR,Alex BURGUN,15,5,20230813OME,20230813,Epee,Open,Mens
 2,1,2,Michael DZODZOS,Hugh WHEELER,3,15,20230813OMF,20230813,Foil,Open,Mens
@@ -13329,12 +13329,12 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 8,6,3,Kate HYDE,Hannah BUGEJA,15,4,20230917U17WF,20230917,Foil,U17,Womens
 2,1,2,Roshan CHANDRAN,Alex BURGUN,11,15,20231022OME,20231022,Epee,Open,Mens
 2,2,1,Alex BURGUN,Roshan CHANDRAN,15,11,20231022OME,20231022,Epee,Open,Mens
-4,1,4,Roshan CHANDRAN,Tai Yuen LAM,11,15,20231022OME,20231022,Epee,Open,Mens
-4,4,1,Tai Yuen LAM,Roshan CHANDRAN,15,11,20231022OME,20231022,Epee,Open,Mens
+4,1,4,Roshan CHANDRAN,Erwin Lam,11,15,20231022OME,20231022,Epee,Open,Mens
+4,4,1,Erwin Lam,Roshan CHANDRAN,15,11,20231022OME,20231022,Epee,Open,Mens
 8,1,8,Roshan CHANDRAN,Carlos RENDO,9,15,20231022OME,20231022,Epee,Open,Mens
 8,8,1,Carlos RENDO,Roshan CHANDRAN,15,9,20231022OME,20231022,Epee,Open,Mens
-8,4,5,Tai Yuen LAM,Stuart MARSHALL,14,15,20231022OME,20231022,Epee,Open,Mens
-8,5,4,Stuart MARSHALL,Tai Yuen LAM,15,14,20231022OME,20231022,Epee,Open,Mens
+8,4,5,Erwin Lam,Stuart MARSHALL,14,15,20231022OME,20231022,Epee,Open,Mens
+8,5,4,Stuart MARSHALL,Erwin Lam,15,14,20231022OME,20231022,Epee,Open,Mens
 4,2,3,Alex BURGUN,Connor BURY,13,15,20231022OME,20231022,Epee,Open,Mens
 4,3,2,Connor BURY,Alex BURGUN,15,13,20231022OME,20231022,Epee,Open,Mens
 8,3,6,Connor BURY,Paul HOSKING,6,15,20231022OME,20231022,Epee,Open,Mens
@@ -13405,8 +13405,8 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 8,5,4,Kate HYDE,Samuel WALLIS,15,7,20231029OBS,20231029,Sabre,Open B,
 4,2,3,Henry CHEN,Tasha WENG,10,15,20231029OBS,20231029,Sabre,Open B,
 4,3,2,Tasha WENG,Henry CHEN,15,10,20231029OBS,20231029,Sabre,Open B,
-8,3,6,Tasha WENG,Hang Tran,2,15,20231029OBS,20231029,Sabre,Open B,
-8,6,3,Hang Tran,Tasha WENG,15,2,20231029OBS,20231029,Sabre,Open B,
+8,3,6,Tasha WENG,Ethan TRAN,2,15,20231029OBS,20231029,Sabre,Open B,
+8,6,3,Ethan TRAN,Tasha WENG,15,2,20231029OBS,20231029,Sabre,Open B,
 2,1,2,Keira ADAMS,Rin NEAL,12,15,20231029OBWF,20231029,Foil,Open B,Womens
 2,2,1,Rin NEAL,Keira ADAMS,15,12,20231029OBWF,20231029,Foil,Open B,Womens
 4,1,4,Keira ADAMS,Charlotte Dippy,11,15,20231029OBWF,20231029,Foil,Open B,Womens
@@ -13497,8 +13497,8 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 8,4,4,Kehong GUO,Amelie BRAMMER,6,10,20231119U11F,20231119,Foil,U11,
 4,2,2,Gerald GUO,Austin WANG,10,9,20231119U11F,20231119,Foil,U11,
 4,2,2,Austin WANG,Gerald GUO,9,10,20231119U11F,20231119,Foil,U11,
-2,1,2,Isabela Dal Moro Ferreira,Lexi ZHOU,6,10,20231119U11GE,20231119,Epee,U11,Girls
-2,2,1,Lexi ZHOU,Isabela Dal Moro Ferreira,10,6,20231119U11GE,20231119,Epee,U11,Girls
+2,1,2,Isabela Ferreira,Lexi ZHOU,6,10,20231119U11GE,20231119,Epee,U11,Girls
+2,2,1,Lexi ZHOU,Isabela Ferreira,10,6,20231119U11GE,20231119,Epee,U11,Girls
 2,1,1,Emile Schembri,Edison SINCLAIR,10,7,20231119U13BE,20231119,Epee,U13,Boys
 2,1,1,Edison SINCLAIR,Emile Schembri,7,10,20231119U13BE,20231119,Epee,U13,Boys
 4,1,4,Emile Schembri,Milan SCHEMBRI,7,10,20231119U13BE,20231119,Epee,U13,Boys
@@ -13589,8 +13589,8 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 8,7,2,Peter BARRY,Pouyan OSHAGHI,15,11,20231126OF,20231126,Foil,Open,
 16,7,10,Peter BARRY,Alan SOLLARS,1,15,20231126OF,20231126,Foil,Open,
 16,10,7,Alan SOLLARS,Peter BARRY,15,1,20231126OF,20231126,Foil,Open,
-2,1,2,Alex BURGUN,Tai Yuen LAM,8,15,20231126OME,20231126,Epee,Open,Mens
-2,2,1,Tai Yuen LAM,Alex BURGUN,15,8,20231126OME,20231126,Epee,Open,Mens
+2,1,2,Alex BURGUN,Erwin Lam,8,15,20231126OME,20231126,Epee,Open,Mens
+2,2,1,Erwin Lam,Alex BURGUN,15,8,20231126OME,20231126,Epee,Open,Mens
 4,1,4,Alex BURGUN,Connor BURY,8,15,20231126OME,20231126,Epee,Open,Mens
 4,4,1,Connor BURY,Alex BURGUN,15,8,20231126OME,20231126,Epee,Open,Mens
 8,1,8,Alex BURGUN,Jerry YU,14,15,20231126OME,20231126,Epee,Open,Mens
@@ -13599,10 +13599,10 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 16,9,8,Craig STAEHR,Jerry YU,15,9,20231126OME,20231126,Epee,Open,Mens
 8,4,5,Connor BURY,Paul HOSKING,11,15,20231126OME,20231126,Epee,Open,Mens
 8,5,4,Paul HOSKING,Connor BURY,15,11,20231126OME,20231126,Epee,Open,Mens
-4,2,2,Stuart MARSHALL,Tai Yuen LAM,15,7,20231126OME,20231126,Epee,Open,Mens
-4,2,2,Tai Yuen LAM,Stuart MARSHALL,7,15,20231126OME,20231126,Epee,Open,Mens
-8,3,6,Tai Yuen LAM,Dov SPINKS,10,15,20231126OME,20231126,Epee,Open,Mens
-8,6,3,Dov SPINKS,Tai Yuen LAM,15,10,20231126OME,20231126,Epee,Open,Mens
+4,2,2,Stuart MARSHALL,Erwin Lam,15,7,20231126OME,20231126,Epee,Open,Mens
+4,2,2,Erwin Lam,Stuart MARSHALL,7,15,20231126OME,20231126,Epee,Open,Mens
+8,3,6,Erwin Lam,Dov SPINKS,10,15,20231126OME,20231126,Epee,Open,Mens
+8,6,3,Dov SPINKS,Erwin Lam,15,10,20231126OME,20231126,Epee,Open,Mens
 16,6,11,Dov SPINKS,Alan SOLLARS,3,15,20231126OME,20231126,Epee,Open,Mens
 16,11,6,Alan SOLLARS,Dov SPINKS,15,3,20231126OME,20231126,Epee,Open,Mens
 8,2,7,Stuart MARSHALL,Peter Brookes,8,15,20231126OME,20231126,Epee,Open,Mens
@@ -13661,10 +13661,10 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 8,8,1,Tiger WU,Alex BURGUN,15,5,20240225OME,20240225,Epee,Open,Mens
 8,4,5,Peter Brookes,Stuart MARSHALL,14,15,20240225OME,20240225,Epee,Open,Mens
 8,5,4,Stuart MARSHALL,Peter Brookes,15,14,20240225OME,20240225,Epee,Open,Mens
-4,2,3,Connor BURY,Tai Yuen LAM,12,15,20240225OME,20240225,Epee,Open,Mens
-4,3,2,Tai Yuen LAM,Connor BURY,15,12,20240225OME,20240225,Epee,Open,Mens
-8,3,6,Tai Yuen LAM,Jerry YU,7,15,20240225OME,20240225,Epee,Open,Mens
-8,6,3,Jerry YU,Tai Yuen LAM,15,7,20240225OME,20240225,Epee,Open,Mens
+4,2,3,Connor BURY,Erwin Lam,12,15,20240225OME,20240225,Epee,Open,Mens
+4,3,2,Erwin Lam,Connor BURY,15,12,20240225OME,20240225,Epee,Open,Mens
+8,3,6,Erwin Lam,Jerry YU,7,15,20240225OME,20240225,Epee,Open,Mens
+8,6,3,Jerry YU,Erwin Lam,15,7,20240225OME,20240225,Epee,Open,Mens
 8,2,7,Connor BURY,Paul HOSKING,11,15,20240225OME,20240225,Epee,Open,Mens
 8,7,2,Paul HOSKING,Connor BURY,15,11,20240225OME,20240225,Epee,Open,Mens
 2,1,1,Peter BARRY,Michael DZODZOS,15,8,20240225OMF,20240225,Foil,Open,Mens
@@ -13733,12 +13733,12 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 8,7,2,Alistair WARRINGTON,Jiayou GAO,5,4,20240324U11F,20240324,Foil,U11,
 16,7,7,Heidi NEWTON,Alistair WARRINGTON,10,1,20240324U11F,20240324,Foil,U11,
 16,7,7,Alistair WARRINGTON,Heidi NEWTON,1,10,20240324U11F,20240324,Foil,U11,
-2,1,2,Ranqing MA,Isabela Dal Moro Ferreira,5,10,20240324U11GE,20240324,Epee,U11,Girls
-2,2,1,Isabela Dal Moro Ferreira,Ranqing MA,10,5,20240324U11GE,20240324,Epee,U11,Girls
+2,1,2,Ranqing MA,Isabela Ferreira,5,10,20240324U11GE,20240324,Epee,U11,Girls
+2,2,1,Isabela Ferreira,Ranqing MA,10,5,20240324U11GE,20240324,Epee,U11,Girls
 4,1,4,Ranqing MA,Cassie ZHANG,1,10,20240324U11GE,20240324,Epee,U11,Girls
 4,4,1,Cassie ZHANG,Ranqing MA,10,1,20240324U11GE,20240324,Epee,U11,Girls
-4,2,2,Lexi ZHOU,Isabela Dal Moro Ferreira,10,6,20240324U11GE,20240324,Epee,U11,Girls
-4,2,2,Isabela Dal Moro Ferreira,Lexi ZHOU,6,10,20240324U11GE,20240324,Epee,U11,Girls
+4,2,2,Lexi ZHOU,Isabela Ferreira,10,6,20240324U11GE,20240324,Epee,U11,Girls
+4,2,2,Isabela Ferreira,Lexi ZHOU,6,10,20240324U11GE,20240324,Epee,U11,Girls
 2,1,1,Plato MINYAEV,Edison SINCLAIR,10,5,20240324U13BE,20240324,Epee,U13,Boys
 2,1,1,Edison SINCLAIR,Plato MINYAEV,5,10,20240324U13BE,20240324,Epee,U13,Boys
 4,2,3,Edison SINCLAIR,Gordon NEILSON,3,10,20240324U13BE,20240324,Epee,U13,Boys
@@ -13901,18 +13901,18 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 8,5,4,Kelly HO,Keira ADAMS,15,9,20240407U17WF,20240407,Foil,U17,Womens
 4,2,3,Hannah BUGEJA,Charlotte Dippy,8,15,20240407U17WF,20240407,Foil,U17,Womens
 4,3,2,Charlotte Dippy,Hannah BUGEJA,15,8,20240407U17WF,20240407,Foil,U17,Womens
-2,1,2,Alex BURGUN,Tai Yuen LAM,9,15,20240505OME,20240505,Epee,Open,Mens
-2,2,1,Tai Yuen LAM,Alex BURGUN,15,9,20240505OME,20240505,Epee,Open,Mens
+2,1,2,Alex BURGUN,Erwin Lam,9,15,20240505OME,20240505,Epee,Open,Mens
+2,2,1,Erwin Lam,Alex BURGUN,15,9,20240505OME,20240505,Epee,Open,Mens
 4,1,4,Alex BURGUN,Connor BURY,5,15,20240505OME,20240505,Epee,Open,Mens
 4,4,1,Connor BURY,Alex BURGUN,15,5,20240505OME,20240505,Epee,Open,Mens
 8,1,8,Alex BURGUN,Paul HOSKING,1,15,20240505OME,20240505,Epee,Open,Mens
 8,8,1,Paul HOSKING,Alex BURGUN,15,1,20240505OME,20240505,Epee,Open,Mens
 8,4,5,Connor BURY,Peter Brookes,9,15,20240505OME,20240505,Epee,Open,Mens
 8,5,4,Peter Brookes,Connor BURY,15,9,20240505OME,20240505,Epee,Open,Mens
-4,2,2,Jerry YU,Tai Yuen LAM,15,7,20240505OME,20240505,Epee,Open,Mens
-4,2,2,Tai Yuen LAM,Jerry YU,7,15,20240505OME,20240505,Epee,Open,Mens
-8,3,3,Dimitrios MIHALAKIS,Tai Yuen LAM,15,6,20240505OME,20240505,Epee,Open,Mens
-8,3,3,Tai Yuen LAM,Dimitrios MIHALAKIS,6,15,20240505OME,20240505,Epee,Open,Mens
+4,2,2,Jerry YU,Erwin Lam,15,7,20240505OME,20240505,Epee,Open,Mens
+4,2,2,Erwin Lam,Jerry YU,7,15,20240505OME,20240505,Epee,Open,Mens
+8,3,3,Dimitrios MIHALAKIS,Erwin Lam,15,6,20240505OME,20240505,Epee,Open,Mens
+8,3,3,Erwin Lam,Dimitrios MIHALAKIS,6,15,20240505OME,20240505,Epee,Open,Mens
 8,2,7,Jerry YU,Can CUI,6,15,20240505OME,20240505,Epee,Open,Mens
 8,7,2,Can CUI,Jerry YU,15,6,20240505OME,20240505,Epee,Open,Mens
 2,1,2,Zhaoxuan XIAO,Connor BURY,5,15,20240505OMF,20240505,Foil,Open,Mens
@@ -14173,18 +14173,18 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 2,2,1,Collette CHU,Ilona MCLACHLAN,15,4,20240630U17WE,20240630,Epee,U17,Womens
 2,1,1,Roshan CHANDRAN,Alex BURGUN,15,13,20240811OME,20240811,Epee,Open,Mens
 2,1,1,Alex BURGUN,Roshan CHANDRAN,13,15,20240811OME,20240811,Epee,Open,Mens
-4,1,4,Roshan CHANDRAN,Tai Yuen LAM,8,15,20240811OME,20240811,Epee,Open,Mens
-4,4,1,Tai Yuen LAM,Roshan CHANDRAN,15,8,20240811OME,20240811,Epee,Open,Mens
+4,1,4,Roshan CHANDRAN,Erwin Lam,8,15,20240811OME,20240811,Epee,Open,Mens
+4,4,1,Erwin Lam,Roshan CHANDRAN,15,8,20240811OME,20240811,Epee,Open,Mens
 8,1,8,Roshan CHANDRAN,Dave Sinclair,0,15,20240811OME,20240811,Epee,Open,Mens
 8,8,1,Dave Sinclair,Roshan CHANDRAN,15,0,20240811OME,20240811,Epee,Open,Mens
 16,8,9,Dave Sinclair,Jerry YU,12,15,20240811OME,20240811,Epee,Open,Mens
 16,9,8,Jerry YU,Dave Sinclair,15,12,20240811OME,20240811,Epee,Open,Mens
-8,4,5,Tai Yuen LAM,Connor BURY,10,15,20240811OME,20240811,Epee,Open,Mens
-8,5,4,Connor BURY,Tai Yuen LAM,15,10,20240811OME,20240811,Epee,Open,Mens
+8,4,5,Erwin Lam,Connor BURY,10,15,20240811OME,20240811,Epee,Open,Mens
+8,5,4,Connor BURY,Erwin Lam,15,10,20240811OME,20240811,Epee,Open,Mens
 16,5,12,Connor BURY,Tiger WU,3,15,20240811OME,20240811,Epee,Open,Mens
 16,12,5,Tiger WU,Connor BURY,15,3,20240811OME,20240811,Epee,Open,Mens
-16,4,13,Tai Yuen LAM,Can CUI,12,15,20240811OME,20240811,Epee,Open,Mens
-16,13,4,Can CUI,Tai Yuen LAM,15,12,20240811OME,20240811,Epee,Open,Mens
+16,4,13,Erwin Lam,Can CUI,12,15,20240811OME,20240811,Epee,Open,Mens
+16,13,4,Can CUI,Erwin Lam,15,12,20240811OME,20240811,Epee,Open,Mens
 4,2,2,Isaac HAYES,Alex BURGUN,15,9,20240811OME,20240811,Epee,Open,Mens
 4,2,2,Alex BURGUN,Isaac HAYES,9,15,20240811OME,20240811,Epee,Open,Mens
 8,3,6,Alex BURGUN,Stuart MARSHALL,5,15,20240811OME,20240811,Epee,Open,Mens
@@ -14483,12 +14483,12 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 4,4,1,Kelly HO,Gabrina GUO,15,5,20240922U17WF,20240922,Foil,U17,Womens
 4,2,3,Hongchun GUAN,Sunday SKRABANICH,10,15,20240922U17WF,20240922,Foil,U17,Womens
 4,3,2,Sunday SKRABANICH,Hongchun GUAN,15,10,20240922U17WF,20240922,Foil,U17,Womens
-2,1,2,Tai Yuen LAM,Darren Ferguson,14,15,20241013OME,20241013,Epee,Open,Mens
-2,2,1,Darren Ferguson,Tai Yuen LAM,15,14,20241013OME,20241013,Epee,Open,Mens
-4,1,4,Tai Yuen LAM,Dimitrios MIHALAKIS,11,15,20241013OME,20241013,Epee,Open,Mens
-4,4,1,Dimitrios MIHALAKIS,Tai Yuen LAM,15,11,20241013OME,20241013,Epee,Open,Mens
-8,1,8,Tai Yuen LAM,Peter Brookes,10,15,20241013OME,20241013,Epee,Open,Mens
-8,8,1,Peter Brookes,Tai Yuen LAM,15,10,20241013OME,20241013,Epee,Open,Mens
+2,1,2,Erwin Lam,Darren Ferguson,14,15,20241013OME,20241013,Epee,Open,Mens
+2,2,1,Darren Ferguson,Erwin Lam,15,14,20241013OME,20241013,Epee,Open,Mens
+4,1,4,Erwin Lam,Dimitrios MIHALAKIS,11,15,20241013OME,20241013,Epee,Open,Mens
+4,4,1,Dimitrios MIHALAKIS,Erwin Lam,15,11,20241013OME,20241013,Epee,Open,Mens
+8,1,8,Erwin Lam,Peter Brookes,10,15,20241013OME,20241013,Epee,Open,Mens
+8,8,1,Peter Brookes,Erwin Lam,15,10,20241013OME,20241013,Epee,Open,Mens
 16,8,9,Peter Brookes,Daniel cox,7,15,20241013OME,20241013,Epee,Open,Mens
 16,9,8,Daniel cox,Peter Brookes,15,7,20241013OME,20241013,Epee,Open,Mens
 8,4,5,Dimitrios MIHALAKIS,Jasper COX,11,15,20241013OME,20241013,Epee,Open,Mens
@@ -14763,8 +14763,8 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 8,6,3,Xinyi ZHANG,Yu Xia TIONG,10,5,20241110U9GE,20241110,Epee,U9,Girls
 8,2,7,Yasmin ASIANDI,Rose LI,4,10,20241110U9GE,20241110,Epee,U9,Girls
 8,7,2,Rose LI,Yasmin ASIANDI,10,4,20241110U9GE,20241110,Epee,U9,Girls
-2,1,2,Alex BURGUN,Tai Yuen LAM,7,15,20241117OME,20241117,Epee,Open,Mens
-2,2,1,Tai Yuen LAM,Alex BURGUN,15,7,20241117OME,20241117,Epee,Open,Mens
+2,1,2,Alex BURGUN,Erwin Lam,7,15,20241117OME,20241117,Epee,Open,Mens
+2,2,1,Erwin Lam,Alex BURGUN,15,7,20241117OME,20241117,Epee,Open,Mens
 4,1,4,Alex BURGUN,Stuart MARSHALL,5,15,20241117OME,20241117,Epee,Open,Mens
 4,4,1,Stuart MARSHALL,Alex BURGUN,15,5,20241117OME,20241117,Epee,Open,Mens
 8,1,8,Alex BURGUN,Paul HOSKING,7,15,20241117OME,20241117,Epee,Open,Mens
@@ -14775,14 +14775,14 @@ roundId,aSeed,bSeed,aName,bName,bScore,aScore,fileName,date,weapon,category,gend
 8,4,4,Stuart MARSHALL,Jerry YU,11,15,20241117OME,20241117,Epee,Open,Mens
 16,5,12,Stuart MARSHALL,Jasper COX,10,15,20241117OME,20241117,Epee,Open,Mens
 16,12,5,Jasper COX,Stuart MARSHALL,15,10,20241117OME,20241117,Epee,Open,Mens
-4,2,3,Tai Yuen LAM,Darren Ferguson,12,15,20241117OME,20241117,Epee,Open,Mens
-4,3,2,Darren Ferguson,Tai Yuen LAM,15,12,20241117OME,20241117,Epee,Open,Mens
+4,2,3,Erwin Lam,Darren Ferguson,12,15,20241117OME,20241117,Epee,Open,Mens
+4,3,2,Darren Ferguson,Erwin Lam,15,12,20241117OME,20241117,Epee,Open,Mens
 8,3,3,Connor BURY,Darren Ferguson,15,10,20241117OME,20241117,Epee,Open,Mens
 8,3,3,Darren Ferguson,Connor BURY,10,15,20241117OME,20241117,Epee,Open,Mens
 16,6,11,Darren Ferguson,Can CUI,7,15,20241117OME,20241117,Epee,Open,Mens
 16,11,6,Can CUI,Darren Ferguson,15,7,20241117OME,20241117,Epee,Open,Mens
-8,2,7,Tai Yuen LAM,Edison SINCLAIR,7,15,20241117OME,20241117,Epee,Open,Mens
-8,7,2,Edison SINCLAIR,Tai Yuen LAM,15,7,20241117OME,20241117,Epee,Open,Mens
+8,2,7,Erwin Lam,Edison SINCLAIR,7,15,20241117OME,20241117,Epee,Open,Mens
+8,7,2,Edison SINCLAIR,Erwin Lam,15,7,20241117OME,20241117,Epee,Open,Mens
 16,7,10,Edison SINCLAIR,Peter Brookes,12,15,20241117OME,20241117,Epee,Open,Mens
 16,10,7,Peter Brookes,Edison SINCLAIR,15,12,20241117OME,20241117,Epee,Open,Mens
 2,1,2,Oliver Pring,Michael DZODZOS,13,15,20241117OMF,20241117,Foil,Open,Mens
